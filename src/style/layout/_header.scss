@@ -1,0 +1,64 @@
+ 
+header 						{ background:white; display:flex; flex-direction:column; position:sticky; top:0; z-index:3;
+
+	hr  					{ background:$line-1; border:0; height:2px; width:100%; position:absolute; left:0; width:100%; bottom:0}
+
+	.us 					{ background:#333; color:white; height:38px; letter-spacing:.8px; font-size:normal 12px 'Ubuntu';   @include flex_yc();
+		
+		a 					{ color: white;  font-size:12px; }
+		
+		.lan 				{ 
+	 		> i 			{ margin-right:9px; top:2px; opacity:.9;}
+			em 				{ font-size:10px; opacity:.5; top:-1px; padding:0 10px; }
+		}
+
+		.irt 				{
+			i 				{ color: #cacaca; top: 3px;font-size: 13px;position: absolute; left: -21px }
+		}
+	}
+
+
+	.as 					{ flex:1; padding-top:20px; padding-bottom:18px; }
+
+	.logo 					{ 
+
+		img 				{ max-width: 224px }
+	}
+
+
+	menu 					{ 
+		> li > span  		{ 
+			a 				{ font-size:16px; font-weight:400;
+				&:hover 	{ color:#FF8040; }
+			}
+			i 				{ font-size:12px; margin-left:5px; top:0px }
+		}
+	}
+
+
+	.frm 					{ width:190px;
+		.ft 				{ border: 1px solid #ddd; font:300 13px Ubuntu; padding-bottom:1px; color:#666;  border-radius: 6px; height: 38px }
+		.fe .fi  i.ss-gizmo { font-size:17px; top:0 }
+	}
+	
+}
+
+
+@media #{$gl-md-min}  		{
+	
+	header 					{
+		.lan a i 			{ display: none }
+	}
+
+}
+
+
+
+// @media #{$gl-lg} { @import "@header/lg" }
+// @media #{$gl-md} { @import "@media/md"  } 
+// @media #{$gl-sm} { @import "@media/sm"  } 
+// @media #{$gl-xs} { @import "@media/xs"  }  
+// @media #{$gl-ms} { @import "@media/ms"  }    
+
+
+

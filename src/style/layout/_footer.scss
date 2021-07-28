@@ -1,0 +1,20 @@
+footer 							{ background:#4c4a50; border-top:1px solid rgba(255,255,255,.4); color:white; font-size:13px; height:65px;
+	a 							{ color:white}
+	.tre 						{
+		li 						{ background: rgba(255,255,255,.15); border-radius:4px; width:32px; height:32px; @include flex_mc(); font-size:15px }
+		.face  					{ top:2px}
+		.twit  					{ top:1px}
+		.yutb  					{ top:2px}
+	}
+}
+
+
+
+/*
+@  responsive  */
+
+// @media #{$gl-lg} { @import "@home/lg" } 	//	1280
+// @media #{$gl-md} { @import "@footer/md" } 	//	1024
+// @media #{$gl-sm} { @import "@footer/sm" }   	//	0768
+// @media #{$gl-xs} { @import "@footer/xs" }  	//	0568
+// @media #{$gl-ms} { @import "@footer/ms" }    //	0360

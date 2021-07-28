@@ -1,0 +1,123 @@
+.home 										{
+
+	.sec-cover								{ overflow:hidden; height:500px;
+		.list 								{ z-index:1;
+			a 								{ display:block; height:500px; overflow:hidden;
+				img 						{ object-fit:cover; height:100%; }
+			}
+		}			
+		.ctrl 								{ position:static;
+			a 								{ z-index:2;  width:40px; height:70px; top:50%; opacity:.2s; background:rgba(0,0,0,.5); transform:translate(0 , -50%); color:white; @include flex_mc(); 
+				&:hover 					{ color:$color-9;  background:rgba(0,0,0,.7) }
+			}
+			a.prev 							{ border-radius:0 8px 8px 0 }
+			a.next 							{ border-radius:8px 0 0 8px }
+		}
+
+		.dots 								{ z-index:2; bottom:25px; right:$gl-gut	}
+		
+		.sum 								{ background: rgba(0,0,0,.3); @include kapla(); color: white;  }
+		.sum .con							{ height:100% }
+		.sum .txt							{ width: 625px; z-index:2; height: 100%; background:rgba(63,107,146,79%); clip-path: polygon(0 0,64% 0,100% 100%,8% 100%); }
+		.sum .txt h3						{ font-size: 32px; margin-bottom: 8px;}
+		.sum .txt p							{ font-size: 17px; text-align:justify}
+		.sum .txt span 						{ margin-top: 21px; display: block;color: #fbe011;font-weight: 600;left: 2px;}
+		.sum .txt span i					{ font-size: 12px;margin-left: 4px;top: 2px;}
+		
+		.sum .txt > div 					{ height: 100%; display: flex;align-items: center;width: 406px;left:57px}
+
+		.sum 								{
+			.us 							{ position:absolute; left: -2%;top: -19%;width:64%;height: 30%; z-index:1; transform:rotate(-6deg); background:#9c8a52; opacity:.7 }
+			.as 							{ position:absolute; left: -2%;bottom: -25%;width:82%;height: 39%; z-index:1; transform:rotate(6deg); background:#9c8a52; opacity:.7 }
+		}
+
+		.shape 								{ position:static; pointer-events:none;
+			.us 							{ position:absolute; left: -2%;top: -25%;width:60%;height: 35%; z-index:2; transform:rotate(-9deg); background:#005072; opacity:.7 }
+			.as 							{ position:absolute; left: -2%;bottom: -25%;width:82%;height: 39%; z-index:2; transform:rotate(6deg); background:#005072; opacity:.7 }
+			.os 							{ position:absolute; z-index: 2; left: 50%; bottom: 0; width: 600px; height: 100%; transform: translate(-600px, 0); background: #fff; opacity: .5; clip-path: polygon(0 0,69% 0,100% 100%,9% 100%);}
+
+		}
+	}
+
+	
+
+	.more 									{ width:100%; color: #436aa7;font:500 16px 'Ubuntu';  display:block;
+		a 									{ color: #436aa7 }
+		span 								{ margin-bottom:18px; display:block }
+		i 									{ font-size: 11px; top: 1px; left: 5px;}
+		hr  								{ background:$line-1; border:0; height:1px; width:100%;}
+	}
+	
+
+	.sec-posts.f-1 							{
+		figure 								{ background:#f9f9f9; border-radius:4px }
+		h3 									{ font-size:19px }
+		a 									{ display:block; height:100%; padding-bottom:50px }
+		summary 							{ text-align:justify; line-height:26px; }
+		span 								{ display: block }
+		.more 								{ bottom:10px    }
+	}
+
+
+	.box-tre								{ background:#f3f3f3;
+		h3 									{ font:700 23px 'Source Sans Pro'; color:#222 } 
+		
+		.col.f-1 							{
+
+			h3 								{ color:#222 }
+			.more 							{ color:#333 }
+		}
+
+		.col.tre 							{ 
+			h3 								{ color:#fff }
+
+		}
+	}
+
+	.sec-irt 								{ background: linear-gradient(160deg,#493275 0,#694f9c 5%,#6b5ca5 26%,#503f73 92%) ;color:#fff; font-size:16px;
+		address 							{ line-height:25px; margin-bottom:30px }
+		ul 									{ font-size:15px; letter-spacing:1.2px;
+			li  							{ margin-bottom:8px}
+			i 								{ font-size:14px ; top:-1px; margin-left:5px}
+		}
+
+		h4 									{ font-size: 23px ; border-bottom:1px solid rgba(255,255,255,.2); border-top:1px solid rgba(255,255,255,.2); padding:14px 2px  }
+		.two 								{
+			p 								{ font-size:16px; text-align:justify }
+		}
+		.more 								{ color: white;
+			a 								{ color: white; &:hover{ opacity:.8} }
+		}
+	}
+
+	.sec-posts.f-2 							{
+		li 									{ border-bottom:1px solid #ddd; padding:18px 0; 
+			&:first-child 					{ padding-top:0 }
+			&:last-child 					{ border:0 }
+			h4 								{ font-size:20px; font-weight:600; margin-bottom:15px }
+			time 							{ font-size:12px; color:#080808  }
+		}
+	}
+
+	.sec-posts.f-3 							{
+		ul 									{
+			h5 								{ font-size:12px; margin-bottom:10px; background: #ececec;border-radius: 5px; padding: 4px 12px;letter-spacing: 0.5px;font-weight: 600;}
+			> li 							{ padding:0 0 15px 0;
+				&:last-child				{ border:0 }
+				li 							{ display:flex; margin-bottom:8px;
+					div:nth-child(1) 		{ width:80px ; font-weight:bold;
+						span 				{ padding-left:12px; top:5px; color:#de5f4a  }	
+					}
+					div:nth-child(2) 		{ flex:1; border-left:1px solid #d8d8d8; padding:2px 14px }
+					h4 						{ font-size:18px; font-weight:600; margin-bottom:3px}
+					span 					{ font-size:12px; color:#222}
+				}
+			}
+		}
+	}
+
+
+	
+
+
+}
