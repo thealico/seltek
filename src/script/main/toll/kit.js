@@ -1,8 +1,5 @@
 function kit(scop){
 	
-	// const ua = window.navigator.userAgent.toLowerCase();
-	// const isiPad = ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
-	// alert(isiPad);
 
 	if(scop =='url-snc'){
 		
@@ -48,17 +45,6 @@ function kit(scop){
 		return false;
 	}
 
-	/*
-	@ root element style */
-
-	if(scop =='RootStyle'){
-		
-		let root = document.documentElement;	
-	
-		root.style.setProperty("--app-body",( set.win.y - 112 )+'px');	
-		return false;
-	}
-	
 	
 	/*
 	@ Blank Url */
@@ -75,93 +61,6 @@ function kit(scop){
  		
  		$($(this).attr('rel')).click();
  	});
-
-
-	$(document).on('click','.cac-rst',function(e){
-
-
-		//let txt = 'Ofisten bu sayfanın içeriğini güncelleme talebinde bulunduysanız aşağıdan yenilemeye basınız';
-		//txt = ( set.page.mod != 'sepet' ) ? txt : 'Sepetin eksik olduğunu düşünüyorsanız  buradan yenileye basın' 
-
-		let txt = 'Sayda cache verisini sıfırlayıp yüklemek istediğinden emin misiniz ?';
-	
-		Swal.fire({
-	  
-			confirmButtonText 	: 'Yenile',
-			cancelButtonText  	: 'Vazgeç',
-			title				: 'Yenile',
-			text 				: txt,
-			width 				: 335,
-			reverseButtons 		: true,
-			showCancelButton	: true,
-			animation 			: false,
-			customClass 		: {
-				cancelButton 	: 'remove',
-				popup 			: 'sw-ios sw-note sw-confirm animated fadeIn'
-			}
-		})
-		.then((result) => {
-			
-			if(result.value){
-				$('html').addClass('query');
-				
-				if( set.page.cat == 'cari'){
-
-					_cari_sec(false,{reset:true});
-				}
-
-				href('reset','page');
-				
-				let u = set.page.current.replace('?reset=page','');
-
-				window.history.pushState("object or string", "Title",u);
-
-
-			}
-		});
-	})
-
-
-	$(document).on('click','a.confirm',function(){
-
-		let e = $(this); 
-		let m = $(e).data('confirm');
-
-		m = m =='frame' ? 'Bu bölüm hazır olmadığı için eski yapıdaki dış bağlantıya yönlendiriliyorsunuz' : m;
-		
-
-		event.preventDefault();	
-
-		Swal.fire({
-	  
-			confirmButtonText 	: 'Tamam',
-			cancelButtonText  	: 'Vazgeç',
-			title				: 'Dış Bağlantı',
-			text 				: m,
-			width 				: 335,
-			reverseButtons 		: true,
-			showCancelButton	: true,
-			animation 			: false,
-			customClass 		: {
-				cancelButton 	: 'remove',
-				popup 			: 'sw-ios sw-note sw-confirm animated fadeIn'
-			}
-		})
-		.then((result) => {
-			
-			if(result.value){
-				
-				$.address.value($(e).attr('href'));
-				return true;
-			}
-			else{
-				return false;
-			}
-			
-		});
-
-
-	});
 }
 
 

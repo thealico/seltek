@@ -53,8 +53,6 @@ $(document).ready(function(){
 	/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
 	@ Utility  */
 		
-	pull_refresh();
-	reset();
 	kit();
 
 
