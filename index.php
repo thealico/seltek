@@ -1,4 +1,5 @@
 <?php
+#sdsdsd
 error_reporting(E_ALL);
 # config ###########################################################
 $root='./';  // where to browse, ./ means wherever this script is located in
