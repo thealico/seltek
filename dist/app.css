@@ -11946,12 +11946,12 @@ blockquote.record {
       .home .sec-irt .more a:hover {
         opacity: .8; }
 
-.about .body h1 {
+.about .base-body h1 {
   font-size: 2.2rem; }
-.about .body summary {
+.about .base-body summary {
   font-size: 20px;
   text-align: justify; }
-.about .body p {
+.about .base-body p {
   font-size: 16px;
   margin-bottom: 15px;
   text-align: justify; }
