@@ -71,6 +71,9 @@
 /* 
 @ Include > Ayrik yapi olmayanlar */
 
+@import "inc/posts"; 
+
+
 @import "inc/nav_slice"; 
 @import "inc/context"; 
 @import "inc/mask_ratio"; 
@@ -99,7 +102,7 @@
 @import "inc/slide"; 
 @import "inc/step"; 
 
-// @import "inc/word"; 
+@import "inc/word"; 
 // @import "inc/tost"; 
 
 
@@ -258,6 +261,7 @@ blockquote.record 				{ display: flex;align-items: center;padding:20px 10px 20px
 @ pages  */
 
  @import "pages/home";
+ @import "pages/about";
 
 // @import "pages/dashboard";
 // @import "pages/oturum";

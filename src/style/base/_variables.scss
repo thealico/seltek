@@ -12,7 +12,9 @@ $fontPath  			: false;
 
 $font-size			: 14px;
 
-$font-0				: 'Gotham';
+//$font-0				: 'Gotham';
+
+$font-0				: 'Open Sans';
 $font-1  			: Brandon, Arial, sans-serif;
 $font-2  			: Arial, sans-serif;
 $font-3  			: Open Sans, Arial, sans-serif;
@@ -32,12 +34,14 @@ $color-2	: #f1371e;		//	orange 	: default active on class
 $color-3	: #f75555;		//	orange  : balon back
 $color-6	: #555555;	
 
-$color-9	: #FF8040;	
+$color-9	: #FF8040;
+
+$color-a	: #3f6b92;	
+$color-b	: #ef8842;	
 
 // gray ton
 
 $gray-1		: #f7f7f7;	
-
 $gray-2		: #e5e5e5;	
 $gray-3		: #fcfcfc;	
 $gray-4		: #f2f2f2;

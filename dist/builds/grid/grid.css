@@ -206,8 +206,8 @@
   margin-left: auto;
   margin-right: auto; }
 [class*="row"].ns, [class*="row"].nsc {
-  --rg:0;
-  --cg:0 ; }
+  --rg:0px;
+  --cg:0px ; }
 [class*="row"].c-eh > * > * {
   height: 100%;
   width: 100%;

@@ -1730,6 +1730,552 @@ function webView(data){
 
  //  window.webkit.messageHandlers.nativeapp.postMessage(data);
 }
+function form_type(){
+
+
+	if ($().datepicker) { 
+
+		$('.datepicker-here.go').datepicker({
+			
+			onSelect: function(formattedDate, date, inst) {
+				var url = $(inst.el).data('perma')+'/'+formattedDate;
+				window.location = url;
+			}
+			
+		})
+	}
+
+	
+	$(document).on('focus','.field-find input',function(){
+		// console.log('focus');
+		$(this).parent().addClass('focus');
+	})
+
+	$(document).on('blur','.field-find input',function(){
+		
+		// console.log('blur 0');
+
+		let e = $(this).parent();
+		window.setTimeout(function(){
+			// console.log('bulur 1');
+			$(e).removeClass('focus');
+		},200) 		
+
+	})
+
+	$(document).on('click','.field-find .find-reset',function(){
+
+		_find_reset({
+			
+			js   : ($(this).attr('js') ? true : false),
+			rel  : $(this).attr('rel')
+		});
+
+	})
+
+
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+
+	$(document).on('click','.e-val',function(){
+
+		$($(this).attr('rel')).val($(this).attr('value'));
+	})
+
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+
+	$(document).on('click','input.check',function(event){
+		
+		event.stopPropagation();
+
+		var el = $(this).parent();
+		
+		if($(this).is(':checked')){
+
+			$(this).prop( "checked",true);
+			$(el).addClass('on');
+		}
+		else{
+			
+			$(this).prop( "checked",false);
+			$(el).removeClass('on');	
+		}
+	})
+
+
+	
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	
+	$(document).on('click','mask-switch',function(event){
+
+		event.stopPropagation();
+	
+	 	if ( !$(this).hasClass('on') ) {
+
+	    	$('#field-'+$(this).data('name')).prop('checked', true);
+			$(this).children('s').text('ON');
+	    	$(this).addClass('on');
+	   	}
+	  	else { 
+
+	    	$('#field-'+$(this).data('name')).prop('checked', false);
+			$(this).children('s').text('OFF');
+	    	$(this).removeClass('on');
+	  	}
+	})
+
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+
+	$(document).on('click','input.radio',function(){
+		
+		if($(this).is(':checked'))
+		{
+			name= $(this).attr('name');
+			
+			$('input[name="'+name+'"]').parent().removeClass('on');;
+			$(this).parent().addClass('on');
+		}
+		else
+		{
+			$(this).parent().removeClass('on');	
+		}
+	})
+	
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	
+	__ft_input_load();
+
+	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+
+	
+	
+	$(document).on('blur','input.e-upper',function(event){
+
+		var str = $(this).val(),
+		words   = str.split(' '),
+		newstr  = new Array();
+	  
+		$.each(words, function(i, word){ 
+			newstr[i] = word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase();
+		})
+
+		$(this).val(newstr.join(' '));
+	});
+
+	$(document).on('blur','.e-emoji-unset',function(event){
+
+		$(this).val(un_emoji($(this).val()));
+	})
+	
+}
+
+function un_emoji (string) {
+  var regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
+  return string.replace(regex, '');
+}
+
+function uppertext(e){
+
+	var str = $(e).val(),
+	words   = str.split(' '),
+	newstr  = new Array();
+  
+	$.each(words, function(i, word){ 
+		newstr[i] = word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase();
+	})
+
+	$(e).val(newstr.join(' '));
+}
+
+
+function __ft_input_load(){
+
+	if ($().mask) { 
+		
+		
+		$('input.mask-money[onda=4]').mask('#.##0,0000',{reverse: true});
+		$('input.mask-money[onda=2]').mask('#.##0,00',{reverse: true});
+
+		$("input.mask-phone").mask("0(999) 999 99 99");
+		$("input.mask-birth").mask("99.99.9999");
+		//$("input.mask-number").mask("999");
+		//$('.mask-num').mask('##0');
+		$('.mask-num[maxlength=5]').mask('99999');
+		$('.mask-num[maxlength=4]').mask('9999');
+		$('.mask-num[maxlength=3]').mask('999');
+		$('.mask-num[maxlength=2]').mask('999');
+		$('.mask-num[maxlength=1]').mask('999');
+		
+		$('.mask-cek').mask("999 99 99"); //{reverse: true}
+
+	}
+
+	/*
+	if ($().inputmask) { 
+	
+
+		$("input.numeric").inputmask("numeric"); 	
+		$("input").inputmask();
+	}
+	*/
+
+
+	if ($().numeric) {
+		
+		$("input.numeric").numeric();	 
+	}
+
+}
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+/* @ nav count : sayısal birim içeren field alanı icin kontrol  */
+
+fs.navcnt = nav_count('create');
+
+
+function nav_count(rst){
+
+	
+	/*
+	@  rst : ayarları olusturm veya resetle  */
+
+	if(rst){
+		
+		let con = { name:false,eksi:0,arti:0,temp:0, range:false }
+		
+		if ( rst =='create') return con;
+		
+		fs.navcnt = con;
+
+		return false;
+	}
+
+	
+	/*
+	@  nav count butunlar tıklanırsa burası calisir, bu butonlar arti eksi varsa ondalik
+	@  butonlarından olusur */
+
+	$(document).on('click','nav.count button',function(event){
+	
+		event.preventDefault();
+		
+		var nav,arr,snc;
+
+		nav = $(this).parent();
+		arr = $(nav).data('set');
+		
+		//console.log(arr);
+
+		arr = (typeof arr =='object') ? arr : $.parseJSON(arr);
+
+		//console.log(arr);
+
+		//JSON.parse()
+
+		var f = {
+
+			max 	: arr.max ? nPar(arr.max) : $(arr.field).attr('max') ? nPar($(arr.field).attr('max')) : false,
+			min  	: arr.min ? nPar(arr.min) : $(arr.field).attr('min') ? nPar($(arr.field).attr('min')) : 0,
+			val 	: nPar($(arr.field).val()),
+			range   : { e:false, onda:false},
+			name    : arr.field.replace("#",''),
+			islem 	: $(this).attr('rel'),
+			oran 	: 1,
+			onda 	: $(arr.field).attr('onda')
+
+		};
+
+		//console.log(f);
+		
+		if( fs.navcnt.name != arr.field ) nav_count('reset');
+		
+		fs.navcnt.temp = f.val;
+	
+		if(arr.range) {
+			
+			f.range.e 	 = '.count-range[rel='+f.name+']';
+			f.range.onda = f.range.e+' .onda';
+		}
+
+		if( arr.type == 'money' && f.islem == 'onda' ) {
+
+			if( !$(this).hasClass('on') ) {
+				
+				if(arr.range) $(f.range.e).addClass('onda');
+
+				$(this).addClass('on');
+				arr['onda'] = true;
+
+			}
+			else {
+
+				if(arr.range) $(f.range.e).removeClass('onda');
+
+				$(this).removeClass('on');
+				arr['onda'] = false;
+			}
+		
+			$(nav).attr('data-set',JSON.stringify(arr));
+
+			return false;
+		}	
+		
+		
+		/*
+		@  arr.type : para formatı ve onda varsa eksi / arti oranini setliyoruz   */
+
+		if( arr.type == 'money') {
+			
+			f.oran = arr.onda ? ( f.onda=='4' ? 0.0001 : 0.01) : f.oran;
+
+			//console.log(f.oran);	
+		}
+
+		/*  
+		@ nav count -  arttirma islemi geldi  */
+
+		if( f.islem == 'arti' ){
+		
+			snc = f.val + f.oran;
+			
+			//console.log(snc);
+
+			/*
+			@ arttirma degeri max sınırı kontrolunu yapiyoruz  */
+
+			if( snc == f.max || snc > f.max ) {
+
+				if(!$(this).hasClass('pause'))
+				{
+					$(this).addClass('pause'); 	// @ max icin arttirma yi kapa 
+					_nc_out(arr,f,f.max);      	// @ maximun degeri ver
+				}
+				
+				/* 
+				@ arttirma kapanmasi halinde ısrarla tıklanmaya devam edilmesi icin
+				@ uyarı mesaj dondurulmek isteniyor ise gir */
+
+				if( arr.msj && fs.navcnt.arti > 0  ){
+
+					var msj = arr.msj.arti.replace('#1',f.max);
+
+					Swal.fire ({
+						confirmButtonText 	: 'Tamam',
+						text 				: msj
+					});
+				}
+
+				fs.navcnt.arti++;
+
+				$(nav).children('.eksi').removeClass('pause');
+				return false;
+			}
+
+			fs.navcnt.arti = 0;
+			$(nav).children('.eksi').removeClass('pause');
+			
+			_nc_out(arr,f,snc)
+		}
+		
+		
+		/*  
+		@ nav count -  eksiltme islemi geldi  */
+
+		if( f.islem == 'eksi' ){
+
+			snc = f.val - f.oran;
+		
+			if( snc == f.min || snc < f.min ) {
+				
+				if(!$(this).hasClass('pause'))
+				{
+
+					$(this).addClass('pause');   // @ max icin arttirma yi kapa 
+					_nc_out(arr,f,f.min) 		//  @ maximun degeri ver
+				}
+
+				/* 
+				@ arttirma kapanmasi halinde ısrarla tıklanmaya devam edilmesi icin
+				@ uyarı mesaj dondurulmek isteniyor ise gir */
+
+				if( arr.msj && fs.navcnt.eksi > 0  ){
+					
+					var msj = arr.msj.eksi.replace('#1',f.min);
+
+					Swal.fire ({
+
+						confirmButtonText 	: 'Tamam',
+						text 	: msj
+					});
+				}
+
+				fs.navcnt.eksi++;
+
+				$(nav).children('.arti').removeClass('pause');
+
+				return false;
+			}
+
+			fs.navcnt.eksi = 0;
+			$(nav).children('.arti').removeClass('pause');
+
+			_nc_out(arr,f,snc);
+		}
+
+		return false;
+	});
+
+	
+	/*
+	@  nav count range
+	@  butonlarından olusur */
+
+
+	
+	$(document).on('input','.count-range input',function(){
+
+		let r = fs.navcnt.range;
+
+		if(!r){
+			
+			let olay = $(this).hasClass('onda') ? 'onda' : 'sayi';
+			
+			fs.navcnt.range = {
+
+				sayi : olay == 'sayi' ? '#'+$(this).attr('id') : '#'+$(this).prev().attr('id'),
+	 			onda : olay == 'onda' ? '#'+$(this).attr('id') : '#'+$(this).next().attr('id'),	
+	 			js   : $(this).parent().attr('js'),
+	 			olay : olay
+			}
+	 	}
+	 	
+	 	if ( r.olay=='sayi' ) { 
+
+			_nc_range_onda(r.onda,r.sayi)
+		}
+
+
+		if ( r.olay=='onda' ) {
+			
+			let n = $(r.sayi).val().split('.')[0]+'.'+$(this).val();
+			$(r.sayi).val(n);
+		}
+
+		if(r.js){
+			
+			eval(r.js+'(r.olay)');	
+		}
+	
+	})
+
+	$(document).on('blur touchend','.count-range input',function(){
+		
+		nav_count('reset');
+	})
+}
+
+
+
+
+
+/* 
+ @ Nav Count - Range Barı Onda 
+ @ Degisen fiyat sonrası onda maksimun ayarını formatlar */
+
+function _nc_range_onda(onda,sayi){
+
+	const max = $(sayi).attr('max').split('.');
+	const num = $(sayi).val().split('.');
+	
+	if(!num[1]) return false;
+
+	$(onda).val(num[1].length == 1 ? num[1]+'0' : num[1])
+
+	if(num[0]==max[0]){ 
+		
+		$(onda).attr('max',max[1]);
+	}
+	else{
+
+		$(onda).attr('max',99);	
+	}	
+}
+
+/* 
+ @ Nav Count - Out
+ @ Arti eksi degeri degisiklik sonrasi input, html ve json degiskenleri formatlar  */
+
+function _nc_out(arr,f,snc){
+	
+	let val = ( arr.range || arr.type != 'money') ? snc : nFor(snc,f.onda);
+	$(arr.field).val(val);
+
+	if(arr.out){
+		
+		let out = arr.type=='money' ? nFor(snc) : snc;
+		$(arr.out).html(out)	
+
+		//console.log(out);
+	}
+
+	if(arr.js){
+
+		let j = { val:snc }; if(arr.id) j.id = arr.id;
+		console.log(j);
+		eval(arr.js+'(j)');
+	}
+
+	if(arr.range){
+
+		_nc_range_onda(f.range.onda,arr.field);	
+	}
+	
+	fs.navcnt.temp=0;
+}
+
+
+
+
+/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+/* @ nav select : select formu sıralı kontrol eden navigasyon  */
+
+function nav_select(){
+
+	
+	$(document).on("click",'nav.select button',function(event){
+		
+		event.preventDefault();
+		
+		var nav,arr,snc;
+
+		nav = $(this).parent();
+		arr = $(nav).data('set');
+
+		var f = {
+			islem 	: $(this).attr('rel'),
+			val 	: $(arr.field).val(),
+		};
+
+		if ( f.islem =='next' ){
+
+			snc = $(arr.field+' option[value='+f.val+']').next('option');
+		}
+		else{
+
+			snc = $(arr.field+' option[value='+f.val+']').prev('option');
+		}
+
+		if ( snc.length==0 ) return false;
+
+		snc = $(snc).attr('value');
+			
+		$(arr.field).val(snc);
+
+		if(arr.js) eval(arr.js+"()");
+
+		
+
+	});
+}
+
 var form = _fx_set({make:'create'});
 
 function _fx_set(opt){
@@ -2482,552 +3028,6 @@ function _modal_of(get){
 		$(path).removeClass('on on-close on-start');
 	},400)
 }
-function form_type(){
-
-
-	if ($().datepicker) { 
-
-		$('.datepicker-here.go').datepicker({
-			
-			onSelect: function(formattedDate, date, inst) {
-				var url = $(inst.el).data('perma')+'/'+formattedDate;
-				window.location = url;
-			}
-			
-		})
-	}
-
-	
-	$(document).on('focus','.field-find input',function(){
-		// console.log('focus');
-		$(this).parent().addClass('focus');
-	})
-
-	$(document).on('blur','.field-find input',function(){
-		
-		// console.log('blur 0');
-
-		let e = $(this).parent();
-		window.setTimeout(function(){
-			// console.log('bulur 1');
-			$(e).removeClass('focus');
-		},200) 		
-
-	})
-
-	$(document).on('click','.field-find .find-reset',function(){
-
-		_find_reset({
-			
-			js   : ($(this).attr('js') ? true : false),
-			rel  : $(this).attr('rel')
-		});
-
-	})
-
-
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-
-	$(document).on('click','.e-val',function(){
-
-		$($(this).attr('rel')).val($(this).attr('value'));
-	})
-
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-
-	$(document).on('click','input.check',function(event){
-		
-		event.stopPropagation();
-
-		var el = $(this).parent();
-		
-		if($(this).is(':checked')){
-
-			$(this).prop( "checked",true);
-			$(el).addClass('on');
-		}
-		else{
-			
-			$(this).prop( "checked",false);
-			$(el).removeClass('on');	
-		}
-	})
-
-
-	
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-	
-	$(document).on('click','mask-switch',function(event){
-
-		event.stopPropagation();
-	
-	 	if ( !$(this).hasClass('on') ) {
-
-	    	$('#field-'+$(this).data('name')).prop('checked', true);
-			$(this).children('s').text('ON');
-	    	$(this).addClass('on');
-	   	}
-	  	else { 
-
-	    	$('#field-'+$(this).data('name')).prop('checked', false);
-			$(this).children('s').text('OFF');
-	    	$(this).removeClass('on');
-	  	}
-	})
-
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-
-	$(document).on('click','input.radio',function(){
-		
-		if($(this).is(':checked'))
-		{
-			name= $(this).attr('name');
-			
-			$('input[name="'+name+'"]').parent().removeClass('on');;
-			$(this).parent().addClass('on');
-		}
-		else
-		{
-			$(this).parent().removeClass('on');	
-		}
-	})
-	
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-	
-	__ft_input_load();
-
-	// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-
-	
-	
-	$(document).on('blur','input.e-upper',function(event){
-
-		var str = $(this).val(),
-		words   = str.split(' '),
-		newstr  = new Array();
-	  
-		$.each(words, function(i, word){ 
-			newstr[i] = word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase();
-		})
-
-		$(this).val(newstr.join(' '));
-	});
-
-	$(document).on('blur','.e-emoji-unset',function(event){
-
-		$(this).val(un_emoji($(this).val()));
-	})
-	
-}
-
-function un_emoji (string) {
-  var regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
-  return string.replace(regex, '');
-}
-
-function uppertext(e){
-
-	var str = $(e).val(),
-	words   = str.split(' '),
-	newstr  = new Array();
-  
-	$.each(words, function(i, word){ 
-		newstr[i] = word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase();
-	})
-
-	$(e).val(newstr.join(' '));
-}
-
-
-function __ft_input_load(){
-
-	if ($().mask) { 
-		
-		
-		$('input.mask-money[onda=4]').mask('#.##0,0000',{reverse: true});
-		$('input.mask-money[onda=2]').mask('#.##0,00',{reverse: true});
-
-		$("input.mask-phone").mask("0(999) 999 99 99");
-		$("input.mask-birth").mask("99.99.9999");
-		//$("input.mask-number").mask("999");
-		//$('.mask-num').mask('##0');
-		$('.mask-num[maxlength=5]').mask('99999');
-		$('.mask-num[maxlength=4]').mask('9999');
-		$('.mask-num[maxlength=3]').mask('999');
-		$('.mask-num[maxlength=2]').mask('999');
-		$('.mask-num[maxlength=1]').mask('999');
-		
-		$('.mask-cek').mask("999 99 99"); //{reverse: true}
-
-	}
-
-	/*
-	if ($().inputmask) { 
-	
-
-		$("input.numeric").inputmask("numeric"); 	
-		$("input").inputmask();
-	}
-	*/
-
-
-	if ($().numeric) {
-		
-		$("input.numeric").numeric();	 
-	}
-
-}
-/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-/* @ nav count : sayısal birim içeren field alanı icin kontrol  */
-
-fs.navcnt = nav_count('create');
-
-
-function nav_count(rst){
-
-	
-	/*
-	@  rst : ayarları olusturm veya resetle  */
-
-	if(rst){
-		
-		let con = { name:false,eksi:0,arti:0,temp:0, range:false }
-		
-		if ( rst =='create') return con;
-		
-		fs.navcnt = con;
-
-		return false;
-	}
-
-	
-	/*
-	@  nav count butunlar tıklanırsa burası calisir, bu butonlar arti eksi varsa ondalik
-	@  butonlarından olusur */
-
-	$(document).on('click','nav.count button',function(event){
-	
-		event.preventDefault();
-		
-		var nav,arr,snc;
-
-		nav = $(this).parent();
-		arr = $(nav).data('set');
-		
-		//console.log(arr);
-
-		arr = (typeof arr =='object') ? arr : $.parseJSON(arr);
-
-		//console.log(arr);
-
-		//JSON.parse()
-
-		var f = {
-
-			max 	: arr.max ? nPar(arr.max) : $(arr.field).attr('max') ? nPar($(arr.field).attr('max')) : false,
-			min  	: arr.min ? nPar(arr.min) : $(arr.field).attr('min') ? nPar($(arr.field).attr('min')) : 0,
-			val 	: nPar($(arr.field).val()),
-			range   : { e:false, onda:false},
-			name    : arr.field.replace("#",''),
-			islem 	: $(this).attr('rel'),
-			oran 	: 1,
-			onda 	: $(arr.field).attr('onda')
-
-		};
-
-		//console.log(f);
-		
-		if( fs.navcnt.name != arr.field ) nav_count('reset');
-		
-		fs.navcnt.temp = f.val;
-	
-		if(arr.range) {
-			
-			f.range.e 	 = '.count-range[rel='+f.name+']';
-			f.range.onda = f.range.e+' .onda';
-		}
-
-		if( arr.type == 'money' && f.islem == 'onda' ) {
-
-			if( !$(this).hasClass('on') ) {
-				
-				if(arr.range) $(f.range.e).addClass('onda');
-
-				$(this).addClass('on');
-				arr['onda'] = true;
-
-			}
-			else {
-
-				if(arr.range) $(f.range.e).removeClass('onda');
-
-				$(this).removeClass('on');
-				arr['onda'] = false;
-			}
-		
-			$(nav).attr('data-set',JSON.stringify(arr));
-
-			return false;
-		}	
-		
-		
-		/*
-		@  arr.type : para formatı ve onda varsa eksi / arti oranini setliyoruz   */
-
-		if( arr.type == 'money') {
-			
-			f.oran = arr.onda ? ( f.onda=='4' ? 0.0001 : 0.01) : f.oran;
-
-			//console.log(f.oran);	
-		}
-
-		/*  
-		@ nav count -  arttirma islemi geldi  */
-
-		if( f.islem == 'arti' ){
-		
-			snc = f.val + f.oran;
-			
-			//console.log(snc);
-
-			/*
-			@ arttirma degeri max sınırı kontrolunu yapiyoruz  */
-
-			if( snc == f.max || snc > f.max ) {
-
-				if(!$(this).hasClass('pause'))
-				{
-					$(this).addClass('pause'); 	// @ max icin arttirma yi kapa 
-					_nc_out(arr,f,f.max);      	// @ maximun degeri ver
-				}
-				
-				/* 
-				@ arttirma kapanmasi halinde ısrarla tıklanmaya devam edilmesi icin
-				@ uyarı mesaj dondurulmek isteniyor ise gir */
-
-				if( arr.msj && fs.navcnt.arti > 0  ){
-
-					var msj = arr.msj.arti.replace('#1',f.max);
-
-					Swal.fire ({
-						confirmButtonText 	: 'Tamam',
-						text 				: msj
-					});
-				}
-
-				fs.navcnt.arti++;
-
-				$(nav).children('.eksi').removeClass('pause');
-				return false;
-			}
-
-			fs.navcnt.arti = 0;
-			$(nav).children('.eksi').removeClass('pause');
-			
-			_nc_out(arr,f,snc)
-		}
-		
-		
-		/*  
-		@ nav count -  eksiltme islemi geldi  */
-
-		if( f.islem == 'eksi' ){
-
-			snc = f.val - f.oran;
-		
-			if( snc == f.min || snc < f.min ) {
-				
-				if(!$(this).hasClass('pause'))
-				{
-
-					$(this).addClass('pause');   // @ max icin arttirma yi kapa 
-					_nc_out(arr,f,f.min) 		//  @ maximun degeri ver
-				}
-
-				/* 
-				@ arttirma kapanmasi halinde ısrarla tıklanmaya devam edilmesi icin
-				@ uyarı mesaj dondurulmek isteniyor ise gir */
-
-				if( arr.msj && fs.navcnt.eksi > 0  ){
-					
-					var msj = arr.msj.eksi.replace('#1',f.min);
-
-					Swal.fire ({
-
-						confirmButtonText 	: 'Tamam',
-						text 	: msj
-					});
-				}
-
-				fs.navcnt.eksi++;
-
-				$(nav).children('.arti').removeClass('pause');
-
-				return false;
-			}
-
-			fs.navcnt.eksi = 0;
-			$(nav).children('.arti').removeClass('pause');
-
-			_nc_out(arr,f,snc);
-		}
-
-		return false;
-	});
-
-	
-	/*
-	@  nav count range
-	@  butonlarından olusur */
-
-
-	
-	$(document).on('input','.count-range input',function(){
-
-		let r = fs.navcnt.range;
-
-		if(!r){
-			
-			let olay = $(this).hasClass('onda') ? 'onda' : 'sayi';
-			
-			fs.navcnt.range = {
-
-				sayi : olay == 'sayi' ? '#'+$(this).attr('id') : '#'+$(this).prev().attr('id'),
-	 			onda : olay == 'onda' ? '#'+$(this).attr('id') : '#'+$(this).next().attr('id'),	
-	 			js   : $(this).parent().attr('js'),
-	 			olay : olay
-			}
-	 	}
-	 	
-	 	if ( r.olay=='sayi' ) { 
-
-			_nc_range_onda(r.onda,r.sayi)
-		}
-
-
-		if ( r.olay=='onda' ) {
-			
-			let n = $(r.sayi).val().split('.')[0]+'.'+$(this).val();
-			$(r.sayi).val(n);
-		}
-
-		if(r.js){
-			
-			eval(r.js+'(r.olay)');	
-		}
-	
-	})
-
-	$(document).on('blur touchend','.count-range input',function(){
-		
-		nav_count('reset');
-	})
-}
-
-
-
-
-
-/* 
- @ Nav Count - Range Barı Onda 
- @ Degisen fiyat sonrası onda maksimun ayarını formatlar */
-
-function _nc_range_onda(onda,sayi){
-
-	const max = $(sayi).attr('max').split('.');
-	const num = $(sayi).val().split('.');
-	
-	if(!num[1]) return false;
-
-	$(onda).val(num[1].length == 1 ? num[1]+'0' : num[1])
-
-	if(num[0]==max[0]){ 
-		
-		$(onda).attr('max',max[1]);
-	}
-	else{
-
-		$(onda).attr('max',99);	
-	}	
-}
-
-/* 
- @ Nav Count - Out
- @ Arti eksi degeri degisiklik sonrasi input, html ve json degiskenleri formatlar  */
-
-function _nc_out(arr,f,snc){
-	
-	let val = ( arr.range || arr.type != 'money') ? snc : nFor(snc,f.onda);
-	$(arr.field).val(val);
-
-	if(arr.out){
-		
-		let out = arr.type=='money' ? nFor(snc) : snc;
-		$(arr.out).html(out)	
-
-		//console.log(out);
-	}
-
-	if(arr.js){
-
-		let j = { val:snc }; if(arr.id) j.id = arr.id;
-		console.log(j);
-		eval(arr.js+'(j)');
-	}
-
-	if(arr.range){
-
-		_nc_range_onda(f.range.onda,arr.field);	
-	}
-	
-	fs.navcnt.temp=0;
-}
-
-
-
-
-/* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-/* @ nav select : select formu sıralı kontrol eden navigasyon  */
-
-function nav_select(){
-
-	
-	$(document).on("click",'nav.select button',function(event){
-		
-		event.preventDefault();
-		
-		var nav,arr,snc;
-
-		nav = $(this).parent();
-		arr = $(nav).data('set');
-
-		var f = {
-			islem 	: $(this).attr('rel'),
-			val 	: $(arr.field).val(),
-		};
-
-		if ( f.islem =='next' ){
-
-			snc = $(arr.field+' option[value='+f.val+']').next('option');
-		}
-		else{
-
-			snc = $(arr.field+' option[value='+f.val+']').prev('option');
-		}
-
-		if ( snc.length==0 ) return false;
-
-		snc = $(snc).attr('value');
-			
-		$(arr.field).val(snc);
-
-		if(arr.js) eval(arr.js+"()");
-
-		
-
-	});
-}
-
 function _tema_form_box(){
 
 	$(form.e).find('.notification button').click(function(){

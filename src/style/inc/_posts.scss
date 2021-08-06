@@ -1,0 +1,64 @@
+.more 									{ width:100%; color: #436aa7;font:500 16px 'Ubuntu';  display:block;
+	a 									{ color: #436aa7 }
+	span 								{ margin-bottom:18px; display:block }
+	i 									{ font-size: 11px; top: 1px; left: 5px;}
+	hr  								{ background:$line-1; border:0; height:1px; width:100%;}
+}
+	
+
+
+.sec-posts.f-1 							{
+	figure 								{ background:#f9f9f9; border-radius:4px }
+	h3 									{ font-size:19px }
+	a 									{ display:block; height:100%; padding-bottom:50px }
+	summary 							{ text-align:justify; line-height:26px; }
+	span 								{ display: block }
+	.more 								{ bottom:10px    }
+}
+
+
+.sec-posts.f-2 								{
+		li 									{ border-bottom:1px solid #ddd; padding:18px 0; 
+			&:first-child 					{ padding-top:0 }
+			&:last-child 					{ border:0 }
+			h4 								{ font-size:20px; font-weight:600; margin-bottom:15px }
+			time 							{ font-size:12px; color:#080808  }
+		}
+	}
+
+
+.sec-posts.f-3 								{
+		ul 									{
+			h5 								{ font-size:12px; margin-bottom:10px; background: #ececec;border-radius: 5px; padding: 4px 12px;letter-spacing: 0.5px;font-weight: 600;}
+			> li 							{ padding:0 0 15px 0;
+				&:last-child				{ border:0 }
+				li 							{ display:flex; margin-bottom:8px;
+					div:nth-child(1) 		{ width:80px ; font-weight:bold;
+						span 				{ padding-left:12px; top:5px; color:#de5f4a  }	
+					}
+					div:nth-child(2) 		{ flex:1; border-left:1px solid #d8d8d8; padding:2px 14px }
+					h4 						{ font-size:18px; font-weight:600; margin-bottom:3px}
+					span 					{ font-size:12px; color:#222}
+				}
+			}
+		}
+	}
+
+
+
+.sec-posts.f-4 							{
+	
+	article 							{ padding:25px 0; border-bottom:1px solid $gray-2;
+		&:last-child 					{ padding-bottom:0; border:0}
+		&:first-child 					{ padding-top:0}
+	}
+
+	figure 								{ background:#efefef; width:230px; border-radius:4px }
+	h3 									{ font-size:19px }
+	a 									{  }
+	summary 							{ text-align:justify; line-height:26px; }
+	span 								{ display: block }
+	.mores 								{  font-weight:600;
+		i 								{ font-weight:normal; font-size:11px; top:1px}
+	}
+}

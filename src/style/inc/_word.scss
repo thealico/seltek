@@ -1,4 +1,4 @@
-.word 										{ font-family:$font-0; color:#8e8d8f; 
+.word 										{ font-family:$font-0; color:#333; 
 		
 	&.dark-0 								{ color:#000 }
 	&.dark-1 								{ color:#111 }
@@ -20,7 +20,7 @@
 	// 
 	p									 	{ font-size:14px; line-height:2; margin-bottom:15px; text-align:justify; hyphens: auto;
 		&:last-child 						{ margin-bottom:0 }
-		a 									{ color:#222; font-weight:500; &:hover { color:#1167a8 }; border-bottom:1px solid $renk-gray-3 }
+		a 									{ color:#222; font-weight:500; &:hover { color:#1167a8 }; border-bottom:1px #666 }
 		strong ,b							{ color:#222; font-weight:600 }
 	}
 	
@@ -96,5 +96,5 @@
 
 // @media #{$gl-md} { @import "@word/md" }  	//	1024
 // @media #{$gl-sm} { @import "@word/sm" }   	//	0768
-@media #{$gl-xs} { @import "@word/xs" }  	//	0568
-@media #{$gl-ms} { @import "@word/ms" }  	//	0360
+//@media #{$gl-xs} { @import "@word/xs" }  	//	0568
+//@media #{$gl-ms} { @import "@word/ms" }  	//	0360

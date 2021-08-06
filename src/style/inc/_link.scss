@@ -6,7 +6,7 @@ a 									{ text-decoration:none ; color:#222;
 
 .uf-1 a, a.uf-1 						{ color:$color-1  }
 
-
+.uf-9									{ color:$color-a; &:hover{ color:$color-b } }
 
 
 .uf-2 a, a.uf-2 						{ color:$color-1; font-weight:400; font-size:15px; display:inline-flex; align-items:center;

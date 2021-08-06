@@ -1,0 +1,20 @@
+.about 							{
+
+	.body 						{
+		h1 						{ font-size:2.2rem }
+		summary 				{ font-size:20px; text-align:justify }
+
+		p 						{ font-size:16px; margin-bottom:15px; text-align:justify }
+	}	
+
+	.cover 						{
+		.sol 					{ background:$color-a url('img/fig-5.png') no-repeat center center; backgrond-size:cover; color:white;
+			h5 					{ font-size:20px }
+			blockquote 			{ font-size:16px; line-height:25px; text-align:justify}
+		}
+	}
+
+	.as 						{
+		.sag 					{ border-left:1px solid $gray-2 }
+	}
+}
