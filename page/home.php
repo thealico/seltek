@@ -91,7 +91,7 @@
 			<nav class="dots prb t-2" id="c-dots"></nav>
 		</div>
 
-		<nav class="ctrl">
+		<nav class="ctrl f-2">
 			<a href="#" id="c-prev" class="prev plb"><i class="ss-gizmo ss-left"></i></a>
 			<a href="#" id="c-next" class="next prb"><i class="ss-gizmo ss-right"></i></a>
 		</nav>

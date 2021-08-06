@@ -6,6 +6,8 @@
 				img 						{ object-fit:cover; height:100%; }
 			}
 		}			
+		
+		/*
 		.ctrl 								{ position:static;
 			a 								{ z-index:2;  width:40px; height:70px; top:50%; opacity:.2s; background:rgba(0,0,0,.5); transform:translate(0 , -50%); color:white; @include flex_mc(); 
 				&:hover 					{ color:$color-9;  background:rgba(0,0,0,.7) }
@@ -13,6 +15,7 @@
 			a.prev 							{ border-radius:0 8px 8px 0 }
 			a.next 							{ border-radius:8px 0 0 8px }
 		}
+		*/
 
 		.dots 								{ z-index:2; bottom:25px; right:$gl-gut	}
 		

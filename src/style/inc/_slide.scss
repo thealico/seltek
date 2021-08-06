@@ -35,23 +35,42 @@
 		
 	}
 	
-	.ctrl.oval 						{ @include flex_xc();
-		a 							{ @include circle(54px); background:white; margin:0 2px; @include flex_mc();
-			i 						{ @include icon_fit(20px,'standard');}
-			&.prev i 				{ left:-2px }
-			&.next i 				{ right:-1px }
-			&:hover 				{ background:#FED148; color:white }
+	.ctrl.oval 					{ @include flex_xc();
+		a 						{ @include circle(54px); background:white; margin:0 2px; @include flex_mc();
+			i 					{ @include icon_fit(20px,'standard');}
+			&.prev i 			{ left:-2px }
+			&.next i 			{ right:-1px }
+			&:hover 			{ background:#FED148; color:white }
 		}
 
-		&.t-1 						{ 
-			a 						{ margin:0 3px; @include circle(43px); background:rgba(0,0,0,.2); border:2px solid rgba(255,255,255,.7); color:#e2e2e2;
-				i 					{ @include icon_fit(16px,'standard');  }
-				&:hover 			{ background:rgba(0,0,0,.7); color:white }
+		&.t-1 					{ 
+			a 					{ margin:0 3px; @include circle(43px); background:rgba(0,0,0,.2); border:2px solid rgba(255,255,255,.7); color:#e2e2e2;
+				i 				{ @include icon_fit(16px,'standard');  }
+				&:hover 		{ background:rgba(0,0,0,.7); color:white }
 			}
 		} 
 	}
 
+
+	.ctrl.f-2 					{ position:static;
+		a 						{ z-index:2;  width:40px; height:70px; top:50%; opacity:.2s; background:rgba(0,0,0,.5); transform:translate(0 , -50%); color:white; @include flex_mc(); 
+			&:hover 			{ color:$color-9;  background:rgba(0,0,0,.7) }
+		}
+		a.prev 					{ border-radius:0 8px 8px 0 }
+		a.next 					{ border-radius:8px 0 0 8px }
+	}
+
+	
+	&.f-1 						{
+		.ctrl.f-2 				{
+			a 					{ width:25px }
+		}
+		.dots 					{ left:55px; bottom:25px}
+	}
+
+
 	&.slide-height 				    {
+
 		.slick-list,
 		.slick-track 				{ height:100%!important }
 	}
