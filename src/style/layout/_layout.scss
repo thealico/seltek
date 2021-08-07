@@ -61,10 +61,42 @@ html.query 							{ pointer-events: none; background:url('img/load/spin.gif') no
 	}
 }
 
+
+
+.acord 								{
+	details 						{ border-top:1px solid $gray-2; 
+		> summary 					{ font-size:24px; color:$color-a;  padding:22px 0; &:hover{ color:$color-b};
+			span 					{ font-weight:200; font-size:38px; top:13px; right:5px;
+				i:nth-child(1) 		{ }
+				i:nth-child(2) 		{ font-size:54px; top:-11px}
+			}
+		}
+		
+		&:not([open]) 				{
+			span i:nth-child(1) 	{  display:block}
+			span i:nth-child(2) 	{  display:none }
+		}
+
+		&[open] 					{
+			span i:nth-child(1) 	{  display:none  }
+			span i:nth-child(2) 	{  display:block }
+		}
+	}
+}
+
+
+
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
  @ line */
 
+hr.line-x 							{ height:1px; display:block; width:100%; background:$gray-2; border:0}
+hr.line-y 							{ width:1px;  background:$gray-2; border:0; height:100% }
 
+.line.yb 							{ border-bottom:1px solid $gray-2  }
+.line.yl 							{ border-left:1px solid $gray-2  }
+.line.yr 							{ border-right:1px solid $gray-2 }
+.line.xl 							{ border-left:1px solid $gray-2  }
+.line.xr 							{ border-right:1px solid $gray-2 }
 
 
 

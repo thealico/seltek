@@ -1,3 +1,50 @@
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ page : post grup model 1  */ 
+
+.post-grup-1 					{
+
+	.base-body .us				{
+		h1 						{ font-size:2.2rem }
+		summary 				{ font-size:20px; text-align:justify }
+		p 						{ font-size:16px; margin-bottom:15px; text-align:justify }
+	}	
+
+	
+	.cover 						{
+		.sol 					{ background:$color-a url('img/fig-5.png') no-repeat center center; backgrond-size:cover; color:white;
+			h5 					{ font-size:20px }
+			blockquote 			{ font-size:16px; line-height:25px; text-align:justify}
+		}
+	}
+
+	
+	.as.f-1 					{
+		.sag 					{ border-left:1px solid $gray-2 }
+	}
+}
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post detay */ 
+
+.post-detay 					{
+
+	.post-foto 					{ background:#f1f1f1; border-radius:10px;	
+
+	}
+
+	.post-head 					{
+		h1 						{ font-size:42px; margin-bottom:6px }
+		p 						{ font-size:30px }
+	}
+}
+
+
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post more line  */ 
+
+
 .more 									{ width:100%; color: #436aa7;font:500 16px 'Ubuntu';  display:block;
 	a 									{ color: #436aa7 }
 	span 								{ margin-bottom:18px; display:block }
@@ -6,6 +53,8 @@
 }
 	
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 1  */ 
 
 .sec-posts.f-1 							{
 	figure 								{ background:#f9f9f9; border-radius:4px }
@@ -16,6 +65,8 @@
 	.more 								{ bottom:10px    }
 }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 2  */ 
 
 .sec-posts.f-2 								{
 		li 									{ border-bottom:1px solid #ddd; padding:18px 0; 
@@ -26,6 +77,9 @@
 		}
 	}
 
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 3  */ 
 
 .sec-posts.f-3 								{
 		ul 									{
@@ -44,6 +98,9 @@
 		}
 	}
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+
+@ post model 4  */ 
 
 
 .sec-posts.f-4 							{

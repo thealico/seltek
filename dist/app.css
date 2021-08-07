@@ -6238,8 +6238,61 @@ html.query {
         pointer-events: none;
         color: #888; }
 
+.acord details {
+  border-top: 1px solid #e5e5e5; }
+  .acord details > summary {
+    font-size: 24px;
+    color: #3f6b92;
+    padding: 22px 0; }
+    .acord details > summary:hover {
+      color: #ef8842; }
+    .acord details > summary span {
+      font-weight: 200;
+      font-size: 38px;
+      top: 13px;
+      right: 5px; }
+      .acord details > summary span i:nth-child(2) {
+        font-size: 54px;
+        top: -11px; }
+  .acord details:not([open]) span i:nth-child(1) {
+    display: block; }
+  .acord details:not([open]) span i:nth-child(2) {
+    display: none; }
+  .acord details[open] span i:nth-child(1) {
+    display: none; }
+  .acord details[open] span i:nth-child(2) {
+    display: block; }
+
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
  @ line */
+hr.line-x {
+  height: 1px;
+  display: block;
+  width: 100%;
+  background: #e5e5e5;
+  border: 0; }
+
+hr.line-y {
+  width: 1px;
+  background: #e5e5e5;
+  border: 0;
+  height: 100%; }
+
+.line.yb {
+  border-bottom: 1px solid #e5e5e5; }
+
+.line.yl {
+  border-left: 1px solid #e5e5e5; }
+
+.line.yr {
+  border-right: 1px solid #e5e5e5; }
+
+.line.xl {
+  border-left: 1px solid #e5e5e5; }
+
+.line.xr {
+  border-right: 1px solid #e5e5e5; }
+
 header {
   background: white;
   display: flex;
@@ -6341,6 +6394,43 @@ footer {
 @  responsive  */
 /* 
 @ Include > Ayrik yapi olmayanlar */
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ page : post grup model 1  */
+.post-grup-1 .base-body .us h1 {
+  font-size: 2.2rem; }
+.post-grup-1 .base-body .us summary {
+  font-size: 20px;
+  text-align: justify; }
+.post-grup-1 .base-body .us p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: justify; }
+.post-grup-1 .cover .sol {
+  background: #3f6b92 url("img/fig-5.png") no-repeat center center;
+  backgrond-size: cover;
+  color: white; }
+  .post-grup-1 .cover .sol h5 {
+    font-size: 20px; }
+  .post-grup-1 .cover .sol blockquote {
+    font-size: 16px;
+    line-height: 25px;
+    text-align: justify; }
+.post-grup-1 .as.f-1 .sag {
+  border-left: 1px solid #e5e5e5; }
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post detay */
+.post-detay .post-foto {
+  background: #f1f1f1;
+  border-radius: 10px; }
+.post-detay .post-head h1 {
+  font-size: 42px;
+  margin-bottom: 6px; }
+.post-detay .post-head p {
+  font-size: 30px; }
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post more line  */
 .more {
   width: 100%;
   color: #436aa7;
@@ -6361,6 +6451,8 @@ footer {
     height: 1px;
     width: 100%; }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 1  */
 .sec-posts.f-1 figure {
   background: #f9f9f9;
   border-radius: 4px; }
@@ -6378,6 +6470,8 @@ footer {
 .sec-posts.f-1 .more {
   bottom: 10px; }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 2  */
 .sec-posts.f-2 li {
   border-bottom: 1px solid #ddd;
   padding: 18px 0; }
@@ -6393,6 +6487,8 @@ footer {
     font-size: 12px;
     color: #080808; }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 3  */
 .sec-posts.f-3 ul h5 {
   font-size: 12px;
   margin-bottom: 10px;
@@ -6427,6 +6523,9 @@ footer {
       font-size: 12px;
       color: #222; }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+
+@ post model 4  */
 .sec-posts.f-4 article {
   padding: 25px 0;
   border-bottom: 1px solid #e5e5e5; }
@@ -8862,7 +8961,7 @@ table.f {
 .slide.f-1 .ctrl.f-2 a {
   width: 25px; }
 .slide.f-1 .dots {
-  left: 5px;
+  left: 55px;
   bottom: 25px; }
 .slide.slide-height .slick-list,
 .slide.slide-height .slick-track {
@@ -11980,26 +12079,4 @@ blockquote.record {
     line-height: 25px;
     text-align: justify; }
 .about .as .sag {
-  border-left: 1px solid #e5e5e5; }
-
-.product .base-body .us h1 {
-  font-size: 2.2rem; }
-.product .base-body .us summary {
-  font-size: 20px;
-  text-align: justify; }
-.product .base-body .us p {
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-align: justify; }
-.product .cover .sol {
-  background: #3f6b92 url("img/fig-5.png") no-repeat center center;
-  backgrond-size: cover;
-  color: white; }
-  .product .cover .sol h5 {
-    font-size: 20px; }
-  .product .cover .sol blockquote {
-    font-size: 16px;
-    line-height: 25px;
-    text-align: justify; }
-.product .as .sag {
   border-left: 1px solid #e5e5e5; }

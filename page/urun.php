@@ -1,12 +1,12 @@
 <?php 
 	
 	$set = array(
-		'title' => '',
-		'class' => 'product list',
+		'title' => 'Ürünler',
+		'class' => 'urun list post-grup-1',
 		
-		'cat'   => 'product',
-		'sub' 	=> 'list',
-		'mod' 	=> ''
+		'cat'   => 'urun',
+		'sub' 	=> '',
+		'mod' 	=> 'list'
 	);
 
 ?>
@@ -93,7 +93,7 @@
 		</div>
 
 		
-		<div class="as row gut-2 py-50">
+		<div class="as f-1 row gut-2 py-50">
 				
 			<div class="sol col-8">
 				
