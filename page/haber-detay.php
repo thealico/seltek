@@ -1,10 +1,10 @@
 <?php 
 	
 	$set = array(
-		'title' => 'Sektörler',
-		'class' => 'sektor detay post-detay f1',
+		'title' => 'Freedom to measure with Volvo - Haber',
+		'class' => 'haber detay post-detay f1',
 		
-		'cat'   => 'sektor',
+		'cat'   => 'haber',
 		'sub' 	=> '',
 		'mod' 	=> 'detay'
 	);
@@ -18,9 +18,8 @@
 			<nav class="map-links">
 				<ul>
 					<li><a href="#">Home</a></li>
-					<li><a href="#"><i>/</i>Sektörler</a></li>
-					<li><i>/</i><a href="#">A Sektörü</a></li>
-					<li class="on"><i>/</i><a href="#">Aircraft Structure</a></li>
+					<li><i>/</i><a href="#">Haberler</a></li>
+					<li class="on"><i>/</i><a href="#">Otomotiv</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -31,8 +30,8 @@
 		
 		<div class="us py-40">
 			<div class="post-head">
-				<h1>Aircraft Structure</h1>
-				<p>Ensuring the Structural Integrity of Aircraft with Simulation, Production and Inspection Technologies</p>
+				<h1>Freedom to measure with Volvo</h1>
+				<p>Productivity gains from prototyping through volvo car factories around  production with the AT960, LAS-XL and T-Scan 5</p>
 			</div>
 		</div>
 
@@ -60,30 +59,33 @@
 
 
 				<div class="acord">
-					<?php for ($s=0; $s < 4 ; $s++):?>
+					
+					<?php  $cats = ['Havacılık','Otomotiv','Enerji','Medikal','Sanayi']; ?>
 
-					<details <?php echo ($s==1) ? 'open' : '' ?>><
-    					<summary>Dimensional Inspection <span class="prb"><i>+</i><i>-</i></span></summary>
-    					<section class="sec-posts f-1 py-25 mask-ratio crop">
+					<?php $s=1; foreach ($cats as $key => $value):  ?>
+
+					<details <?php echo ($s <= 2) ? 'open' : '' ?>>
+    					<summary><?php echo $value ?> <span class="prb"><i>+</i><i>-</i></span></summary>
+    					<section class="sec-posts f-5 pt-15 pb-40 mask-ratio crop">
 							<div class="row-2 gut-2">
 								<?php for ($i=0; $i < 4 ; $i++):?>
-								<article class="col">
+								<article class="col pb-30">
 									<a href="#">
 										<figure class="mb-20 ">
 											<img src="<?php echo path('img/16.9.png')?>" class="mask"/>
 											<img src="<?php echo path('img/bos.16.9.png')?>" class="real"/>
 										</figure>
-										<h3 class="mb-10">Lorem Title <?php echo $i+1 ?></h3>
-										<summary class="mb-50">Embed quality into product design and engineering to ensure component manufacturability and downstream production productivity.</summary>
-										<span class="more"><span>More <i class="ss-gizmo  ss-right"></i></span><hr/></span>
+										<h4 class="mb-10">Lorem Title <?php echo $i+1 ?></h4>
+										<summary class="mb-15">Embed quality into product design and engineering to ensure component manufacturability and downstream production productivity.</summary>
 									</a>
+									<span class="more plb f-2"><a href="#"> <i class="ss-gizmo ss-index"></i> <?php echo $value ?></a></span>
 								</article>
 								<?php endfor ?>
 							</div>
 						</section>
     				</details>
 
-    				<?php endfor ?>
+    				<?php $s++; endforeach ?>
 
 				</div>
 

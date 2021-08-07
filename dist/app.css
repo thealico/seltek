@@ -6239,6 +6239,29 @@ html.query {
         color: #888; }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ @ body > head  */
+.body-head.f-1 h1 {
+  font-size: 2.2rem; }
+.body-head.f-1 summary {
+  font-size: 20px;
+  text-align: justify; }
+.body-head.f-1 p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: justify; }
+.body-head.f-3 h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px; }
+.body-head.f-3 p {
+  font-size: 22px;
+  text-align: justify; }
+.body-head.f-2 h1 {
+  font-size: 42px;
+  margin-bottom: 6px; }
+.body-head.f-2 p {
+  font-size: 30px; }
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
  @ cart : acrod  */
 .acord details {
   border-top: 1px solid #e5e5e5; }
@@ -6256,13 +6279,13 @@ html.query {
       .acord details > summary span i:nth-child(2) {
         font-size: 54px;
         top: -11px; }
-  .acord details:not([open]) span i:nth-child(1) {
+  .acord details:not([open]) summary span i:nth-child(1) {
     display: block; }
-  .acord details:not([open]) span i:nth-child(2) {
+  .acord details:not([open]) summary span i:nth-child(2) {
     display: none; }
-  .acord details[open] span i:nth-child(1) {
+  .acord details[open] summary span i:nth-child(1) {
     display: none; }
-  .acord details[open] span i:nth-child(2) {
+  .acord details[open] summary span i:nth-child(2) {
     display: block; }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
@@ -6415,15 +6438,6 @@ footer {
 @ Include > Ayrik yapi olmayanlar */
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ page : post grup model 1  */
-.post-grup-1 .base-body .us h1 {
-  font-size: 2.2rem; }
-.post-grup-1 .base-body .us summary {
-  font-size: 20px;
-  text-align: justify; }
-.post-grup-1 .base-body .us p {
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-align: justify; }
 .post-grup-1 .cover .sol {
   background: #3f6b92 url("img/fig-5.png") no-repeat center center;
   backgrond-size: cover;
@@ -6472,22 +6486,46 @@ footer {
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ post model 1  */
-.f-1.sec-posts figure {
+.sec-posts.f-1 figure {
   background: #f9f9f9;
   border-radius: 4px; }
-.f-1.sec-posts h3 {
+.sec-posts.f-1 h3 {
   font-size: 19px; }
-.f-1.sec-posts a {
+.sec-posts.f-1 a {
   display: block;
   height: 100%;
   padding-bottom: 50px; }
-.f-1.sec-posts summary {
+.sec-posts.f-1 summary {
   text-align: justify;
   line-height: 26px; }
-.f-1.sec-posts span {
+.sec-posts.f-1 span {
   display: block; }
-.f-1.sec-posts .more {
+.sec-posts.f-1 .more {
   bottom: 10px; }
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 5  */
+.sec-posts.f-5 figure {
+  background: #f9f9f9;
+  border-radius: 4px; }
+.sec-posts.f-5 h4 {
+  font-size: 19px; }
+.sec-posts.f-5 article > a {
+  display: block; }
+  .sec-posts.f-5 article > a:hover h4 {
+    color: #ef8842; }
+.sec-posts.f-5 summary {
+  text-align: justify;
+  line-height: 26px; }
+.sec-posts.f-5 span {
+  display: block; }
+.sec-posts.f-5 .more {
+  font-size: 13px; }
+  .sec-posts.f-5 .more a i {
+    font-size: 14px;
+    top: 1px;
+    color: #333;
+    margin-right: 7px; }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ post model 2  */
@@ -12078,15 +12116,6 @@ blockquote.record {
       .home .sec-irt .more a:hover {
         opacity: .8; }
 
-.about .base-body .us h1 {
-  font-size: 2.2rem; }
-.about .base-body .us summary {
-  font-size: 20px;
-  text-align: justify; }
-.about .base-body .us p {
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-align: justify; }
 .about .cover .sol {
   background: #3f6b92 url("img/fig-5.png") no-repeat center center;
   backgrond-size: cover;

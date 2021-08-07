@@ -1,11 +1,11 @@
 <?php 
 	
 	$set = array(
-		'title' => 'Sektörler',
-		'class' => 'sektor sub list post-grup-1',
+		'title' => 'Haberler',
+		'class' => 'haber list post-grup-1',
 		
-		'cat'   => 'sektor',
-		'sub' 	=> 'sub',
+		'cat'   => 'haber',
+		'sub' 	=> '',
 		'mod' 	=> 'list'
 	);
 
@@ -18,8 +18,7 @@
 			<nav class="map-links">
 				<ul>
 					<li><a href="#">Home</a></li>
-					<li><a href="#"><i>/</i>Sektörler</a></li>
-					<li class="on"><i>/</i><a href="#">A Sektörü</a></li>
+					<li class="on"><i>/</i><a href="#">Haberler</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -30,13 +29,11 @@
 		
 		<div class="us py-35">
 			
-			<div class="body-head f-1">
-				<h1>A Sektörü</h1>		
-				<div class="word f-2 py-5">
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>				
-				</div>
-			</div>	
-
+			<div class="body-head f-3">
+				<h1>Haberler</h1>		
+				<p>Ölçüm ve kontrol sistemlerinin lider üreticisi Seltek şirketiize ve sektörümüze dair tüm gelişmeleri, bildirimleri ve tüm etkinleri bu sayfamızdan takip edebilirsiniz</p>				
+			</div>
+			
 			<?php
 		
 				$slick 			=  [
@@ -93,24 +90,41 @@
 
 		
 		<div class="as f-2 pb-50">
+			
+			<?php 
+
+				$cats = ['Havacılık','Otomotiv','Enerji','Medikal','Sanayi'];
+
+			?>
+
+			
+			<div class="acord">
 				
-			<section class="sec-posts f-1 mask-ratio crop	">
-				<div class="row-3 gut-2">
-					<?php for ($i=0; $i < 9 ; $i++):?>
-					<article class="col">
-						<a href="#">
-							<figure class="mb-20 ">
-								<img src="<?php echo path('img/16.9.png')?>" class="mask"/>
-								<img src="<?php echo path('img/bos.16.9.png')?>" class="real"/>
-							</figure>
-							<h3 class="mb-10">Alt Sektör <?php echo $i+1 ?></h3>
-							<summary class="mb-50">Embed quality into product design and engineering to ensure component manufacturability and downstream production productivity.</summary>
-							<span class="more"><span>More <i class="ss-gizmo  ss-right"></i></span><hr/></span>
-						</a>
-					</article>
-					<?php endfor ?>
-				</div>
-			</section>
+				<?php $s=1; foreach ($cats as $key => $value):  ?> 
+				<details <?php echo ($s <= 2) ? 'open' : '' ?>>
+    				<summary><h3><?php echo $value ?></h3><span class="prb"><i>+</i><i>-</i></span></summary>
+					<section class="sec-posts f-5 mask-ratio crop pt-20 pb-60" group="<?php echo $value?>">
+						<div class="row-3 gut-2">
+							<?php for ($i=0; $i < 3 ; $i++):?>
+							<article class="col pb-30">
+								<a href="#">
+									<figure class="mb-20 ">
+										<img src="<?php echo path('img/16.9.png')?>" class="mask"/>
+										<img src="<?php echo path('img/bos.16.9.png')?>" class="real"/>
+									</figure>
+									<h4 class="mb-10">News <?php echo $i+1 ?></h4>
+									<summary class="mb-15">Embed quality into product design and engineering to ensure component manufacturability and downstream production productivity.</summary>
+								</a>
+								<span class="more plb f-2"><a href="#"> <i class="ss-gizmo ss-index"></i> <?php echo $value ?></a></span>
+							</article>
+							<?php endfor ?>
+						</div>
+					</section>
+				</details>
+				<?php $s++; endforeach ?>
+
+			</div>
+
 		</div>
 
 	</div>

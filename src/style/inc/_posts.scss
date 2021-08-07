@@ -1,14 +1,11 @@
 
+
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ page : post grup model 1  */ 
 
 .post-grup-1 					{
 
-	.base-body .us				{
-		h1 						{ font-size:2.2rem }
-		summary 				{ font-size:20px; text-align:justify }
-		p 						{ font-size:16px; margin-bottom:15px; text-align:justify }
-	}	
+	
 
 	
 	.cover 						{
@@ -56,13 +53,29 @@
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ post model 1  */ 
 
-.f-1.sec-posts 							{
+.sec-posts.f-1 							{
 	figure 								{ background:#f9f9f9; border-radius:4px }
 	h3 									{ font-size:19px }
 	a 									{ display:block; height:100%; padding-bottom:50px }
 	summary 							{ text-align:justify; line-height:26px; }
 	span 								{ display: block }
 	.more 								{ bottom:10px    }
+}
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+@ post model 5  */
+
+.sec-posts.f-5 							{
+	figure 								{ background:#f9f9f9; border-radius:4px }
+	h4 									{ font-size:19px }
+	article > a 						{ display:block;
+		&:hover h4 						{ color:$color-b; }
+	}
+	summary 							{ text-align:justify; line-height:26px; }
+	span 								{ display: block }
+	.more 								{ font-size:13px;
+		a i								{ font-size:14px ; top:1px; color:#333; margin-right:7px 	}
+	}
 }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 

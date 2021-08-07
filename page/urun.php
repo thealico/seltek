@@ -29,13 +29,16 @@
 		
 		<div class="us py-35">
 			
-			<h1>Ürünler</h1>		
+			<div class="body-head f-3">
+				
+				<h1>Ürünler</h1>
+				<div class="word f-3 py-5">
+					<p>Seltek Kalite Ölçüm ve Kontrol Sistemleri (QCS), 6 adede kadar tarama çerçevesi ve 24 sensör barındırabilir. Her tarayıcıda en fazla 6 sensör bulunabilir. Tarayıcılar, diferansiyel ölçüm çözümleri kullanan kritik süreçler için "aynı nokta ölçümü" modunda çalıştırılabilir. Tarayıcılar, ana CPU'ya ve birbirlerine bir Ethernet ağı üzerinden bağlanır. Elektronik, Beckhoff PLC'lere ve Beckhoff endüstriyel bilgisayarlarına dayanmaktadır. </p>
+					<p>İnsan Makine Arayüzü, C# ve MS SQL'e dayanmaktadır. Kapsamlı raporlama seçenekleri mevcuttur. Sistemler, piyasadaki en iyi tedarikçilerden temin edilen hazır bileşenlerden yapılmıştır ve müşteriler gerçek uzun vadeli tedarik garantisine sahiptir.</p>
+				</div>
 
-			<div class="word f-3 py-5">
-				<p>Seltek Kalite Ölçüm ve Kontrol Sistemleri (QCS), 6 adede kadar tarama çerçevesi ve 24 sensör barındırabilir. Her tarayıcıda en fazla 6 sensör bulunabilir. Tarayıcılar, diferansiyel ölçüm çözümleri kullanan kritik süreçler için "aynı nokta ölçümü" modunda çalıştırılabilir. Tarayıcılar, ana CPU'ya ve birbirlerine bir Ethernet ağı üzerinden bağlanır. Elektronik, Beckhoff PLC'lere ve Beckhoff endüstriyel bilgisayarlarına dayanmaktadır. </p>
-				<p>İnsan Makine Arayüzü, C# ve MS SQL'e dayanmaktadır. Kapsamlı raporlama seçenekleri mevcuttur. Sistemler, piyasadaki en iyi tedarikçilerden temin edilen hazır bileşenlerden yapılmıştır ve müşteriler gerçek uzun vadeli tedarik garantisine sahiptir.</p>
 			</div>
-			
+				
 
 			<?php
 		

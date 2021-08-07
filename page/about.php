@@ -1,7 +1,7 @@
 <?php 
 	
 	$set = array(
-		'title' => '',
+		'title' => 'Hakkında',
 		'class' => 'about',
 		'cat'   => '',
 		'sub' 	=> '',
@@ -28,10 +28,11 @@
 		
 		<div class="us py-35">
 			
-			<h1>Hakkımızda</h1>		
+			<div class="body-head f-1">
+				<h1>Hakkımızda</h1>		
+				<summary class="py-5">Seltek is a leading manufacturer of measurement and control systems for flat products industries. Special sensors based on isotope and x-ray sources are used to measure thickness, basis weight or ash content.</summary>
+			</div>
 
-			<summary class="py-5">Seltek is a leading manufacturer of measurement and control systems for flat products industries. Special sensors based on isotope and x-ray sources are used to measure thickness, basis weight or ash content.</summary>
-			
 			<div class="cover row ns my-30">
 				
 				<div class="sol col-4 flex mc">
