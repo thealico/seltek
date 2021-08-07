@@ -6238,6 +6238,8 @@ html.query {
         pointer-events: none;
         color: #888; }
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ @ cart : acrod  */
 .acord details {
   border-top: 1px solid #e5e5e5; }
   .acord details > summary {
@@ -6264,7 +6266,24 @@ html.query {
     display: block; }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
- @ line */
+ @ cart : adres  */
+.cart-adres h5 {
+  font-weight: 600;
+  font-size: 16px; }
+.cart-adres h6 {
+  font-weight: 600;
+  font-size: 13px; }
+.cart-adres address {
+  padding: 11px 0; }
+.cart-adres ul li {
+  margin-bottom: 6px;
+  font-size: 13px;
+  letter-spacing: .5px; }
+  .cart-adres ul li b {
+    font-weight: 600; }
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ @ toll : line */
 hr.line-x {
   height: 1px;
   display: block;
@@ -6453,21 +6472,21 @@ footer {
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 @ post model 1  */
-.sec-posts.f-1 figure {
+.f-1.sec-posts figure {
   background: #f9f9f9;
   border-radius: 4px; }
-.sec-posts.f-1 h3 {
+.f-1.sec-posts h3 {
   font-size: 19px; }
-.sec-posts.f-1 a {
+.f-1.sec-posts a {
   display: block;
   height: 100%;
   padding-bottom: 50px; }
-.sec-posts.f-1 summary {
+.f-1.sec-posts summary {
   text-align: justify;
   line-height: 26px; }
-.sec-posts.f-1 span {
+.f-1.sec-posts span {
   display: block; }
-.sec-posts.f-1 .more {
+.f-1.sec-posts .more {
   bottom: 10px; }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 

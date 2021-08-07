@@ -61,7 +61,8 @@ html.query 							{ pointer-events: none; background:url('img/load/spin.gif') no
 	}
 }
 
-
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ @ cart : acrod  */
 
 .acord 								{
 	details 						{ border-top:1px solid $gray-2; 
@@ -85,9 +86,24 @@ html.query 							{ pointer-events: none; background:url('img/load/spin.gif') no
 }
 
 
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+ @ cart : adres  */
+
+ .cart-adres 						{ 
+
+ 	h5 								{ font-weight:600 ; font-size:16px}
+ 	h6 								{ font-weight:600 ; font-size:13px}
+ 	address 						{ padding:11px 0 }
+ 	ul li 							{ margin-bottom:6px; font-size:13px; letter-spacing:.5px;
+ 		b 							{ font-weight:600 }
+ 	}
+ }
+
+
+
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
- @ line */
+ @ toll : line */
 
 hr.line-x 							{ height:1px; display:block; width:100%; background:$gray-2; border:0}
 hr.line-y 							{ width:1px;  background:$gray-2; border:0; height:100% }
@@ -97,6 +113,8 @@ hr.line-y 							{ width:1px;  background:$gray-2; border:0; height:100% }
 .line.yr 							{ border-right:1px solid $gray-2 }
 .line.xl 							{ border-left:1px solid $gray-2  }
 .line.xr 							{ border-right:1px solid $gray-2 }
+
+
 
 
 

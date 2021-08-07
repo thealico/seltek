@@ -64,7 +64,7 @@
 				<div class="acord">
 					<?php for ($s=0; $s < 4 ; $s++):?>
 
-					<details open_>
+					<details <?php echo ($s==1) ? 'open' : '' ?>>
     					<summary>Dimensional Inspection <span class="prb"><i>+</i><i>-</i></span></summary>
     					<section class="sec-posts f-1 py-25 mask-ratio crop">
 							<div class="row-2 gut-2">
@@ -95,6 +95,22 @@
 
 			<div class="sidbox col-4 pl-25 line yl">
 					
+					<section class="cart-adres">
+						<div>
+							<h5>Seltek Ticaret ve Sanayi Ltd.Sti.</h5>
+							<h6>Merkez Ofis, Showroom</h6>
+							<address>Alaaddinbey Mah. 636.Sok. No:2 Otomasyon Plaza, NİLTİM, Nilüfer 16110 Bursa Turkey</address>
+
+							<ul>
+								<li><b>T:</b> +90 850 466 44 64</li>
+								<li><b>F:</b> +90 850 466 45 65</li>
+							</ul>
+						</div>
+						<hr class="line-x my-25"/>
+					</section>
+
+
+
 					<section class="sec-posts f-1 mask-ratio crop">
 						<article>
 							<a href="#">
