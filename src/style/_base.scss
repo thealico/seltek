@@ -65,7 +65,7 @@
 .ovrly.two,
 .ovrly.one 					{ visibility: hidden; opacity: 0; transition: opacity .3s; z-index:7 }
 
-.ovrly.two 					{ background: rgba(0,0,0,.09); transition: opacity .2s; }
+.ovrly.two 					{ background: rgba(0,0,0,.15); transition: opacity .2s; z-index:3 }
  		
 
 
@@ -93,7 +93,7 @@ html.un-scr body 					{ height: auto!important; overflow: hidden; }
 
 
 
-.hide-scr::-webkit-scrollbar 		{ display: none}
+.hide-scr::-webkit-scrollbar 		{ display: none }
 
 
 .scr-y 								{ height: 100%; overflow-y:scroll; overflow-x:hidden }

@@ -78,6 +78,45 @@ $(document).ready(function(){
 	fs.context =  new Context();
 
 	_tema_slide();
+	_tema_tab();
+
+
+
+	$('#menu > li').hover(
+	  function(){
+	  	$('html').addClass('on-menu');
+	  	screen(1,'two');
+	  },function(){
+
+	  	$('html').removeClass('on-menu');
+	  	screen(0,'two');
+
+	  	$('#menu .nav-as ol').removeClass('on');
+	  	$('#menu .nav-as ol:nth-child(1)').addClass('on');
+	  	$('#menu .nav-us li').removeClass('on');
+	  	$('#menu .nav-us li:nth-child(1)').addClass('on');
+	  }
+	);
+
+
+	$('#menu .tab-con .on .nav-us li').hover(
+		function(){
+	  		
+	  		let i = $(this).index()+1;
+
+	  		$('#menu .tab-con .on .nav-us ol li').removeClass('on');
+	  		$(this).addClass('on');
+
+	  		$('#menu .tab-con .on .nav-as ol').removeClass('on');
+	  		$(`#menu .tab-con .on .nav-as ol:nth-child(${i})`).addClass('on');
+		},
+		function(){
+
+	  		//$('#menu .tab-con .on .nav-us ol').removeClass('on');
+		}
+	);
+
+	
 
 	//_tema_app_menu();
 	//_tema_nav_tab();

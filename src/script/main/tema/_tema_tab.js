@@ -3,7 +3,7 @@
 
 function _tema_tab(){
 	
-	$('.tab-nav a').click(function(e){
+	$('.tab-nav > *').click(function(e){
 		
 		var tabgroup   = $(this).data('tab'),
 			tabscript  = $(this).data('script') ? $(this).data('script') : false,
@@ -11,10 +11,10 @@ function _tema_tab(){
 		
 		console.log(tabgroup);
 		
-		$('.tab-nav a').removeClass('on');
+		$('.tab-nav > *').removeClass('on');
 		$(this).addClass('on');
 
-
+		console.log(tabindex);
 		$('.tab-'+tabgroup+' > *').removeClass('on');
 		$('.tab-'+tabgroup+' > *:nth-child('+(tabindex+1)+')').addClass('on');
 

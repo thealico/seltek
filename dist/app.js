@@ -78,6 +78,45 @@ $(document).ready(function(){
 	fs.context =  new Context();
 
 	_tema_slide();
+	_tema_tab();
+
+
+
+	$('#menu > li').hover(
+	  function(){
+	  	$('html').addClass('on-menu');
+	  	screen(1,'two');
+	  },function(){
+
+	  	$('html').removeClass('on-menu');
+	  	screen(0,'two');
+
+	  	$('#menu .nav-as ol').removeClass('on');
+	  	$('#menu .nav-as ol:nth-child(1)').addClass('on');
+	  	$('#menu .nav-us li').removeClass('on');
+	  	$('#menu .nav-us li:nth-child(1)').addClass('on');
+	  }
+	);
+
+
+	$('#menu .tab-con .on .nav-us li').hover(
+		function(){
+	  		
+	  		let i = $(this).index()+1;
+
+	  		$('#menu .tab-con .on .nav-us ol li').removeClass('on');
+	  		$(this).addClass('on');
+
+	  		$('#menu .tab-con .on .nav-as ol').removeClass('on');
+	  		$(`#menu .tab-con .on .nav-as ol:nth-child(${i})`).addClass('on');
+		},
+		function(){
+
+	  		//$('#menu .tab-con .on .nav-us ol').removeClass('on');
+		}
+	);
+
+	
 
 	//_tema_app_menu();
 	//_tema_nav_tab();
@@ -344,6 +383,100 @@ function _ti_destory() {
 	noScroll(false);
 	fs.info.open= false;
 
+}
+fs.tab = _tema_nav_tab('reset');
+
+function _tema_nav_tab(obj){
+
+	if( obj=='reset' ){
+		
+		//console.log('_tema_nav_tab(reset)');
+
+		return { id:false, li:false, index:false, prev:false, sub:false, box:false };
+	}
+	
+	//console.log('_tema_nav_tab()');
+
+	$(document).on('click','.tab a.t',function(e){
+		
+	
+		e.preventDefault();
+
+		if(!app.session && !app.guest ){ 
+			
+			session(); return false;
+		}
+
+		let el  = $(this).parent();
+		let nv 	= '#'+$(el).parent().parent().attr('id');
+		let li  = nv+' > ol > li';
+		
+		
+		let tb  = $(this).hasClass('tc') ? ( $(this).attr('tab') ? $(this).attr('tab') : ( $(el).index()+1) ) : false;
+
+		fs.tab.box 	= tb;
+
+		
+		fs.tab.li   = li;
+		fs.tab.id 	= nv;
+
+		fs.tab.sub   = $(el).hasClass('sub') ? true : false;
+		fs.tab.prev  = $(nv).attr('on');
+		fs.tab.index = $(el).index()+1;
+		
+		$(nv).attr('on',fs.tab.index);
+		$(li).removeClass('on op');
+		$(el).addClass('on');
+		
+	
+		if( tb && !fs.tab.sub ){
+			
+			//console.log('x');
+
+			_tab_con();
+		}
+		
+		if(!fs.tab.sub){
+			fs.tab = _tema_nav_tab('reset');
+		}
+
+	});
+
+}
+
+function _tab_con(id,index){
+	
+	id 		= id 	? '#tab-'+id : fs.tab.id;
+	index 	= index ? index 	: fs.tab.box;
+
+	$(id+'-con .tc-item').removeClass('on');
+	$(id+'-con > .tc-item:nth-child('+index+')').addClass('on');	
+}
+
+function _tab_subs(){
+	
+	//console.log('_tab_subs()');
+	let tab = fs.tab;
+
+	$(tab.li).removeClass('on op');
+	$(tab.li+':nth-child('+tab.index+')').addClass('op');
+
+	fs.tab = _tema_nav_tab('reset');
+}
+
+function _tab_prev(){
+
+	
+
+	let tab = fs.tab;
+	let prv = $(tab.li+':nth-child('+tab.prev+')');
+	
+	$(tab.li).removeClass('on');
+	if($(prv).hasClass('sub')) $(prv).addClass('op'); else $(prv).addClass('on');
+	$(tab.id).attr('on',tab.prev);
+
+	
+	fs.tab = _tema_nav_tab('reset');
 }
 /* -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
 @  tema > slide */
@@ -690,7 +823,7 @@ function slick_native(slide,list){
 
 function _tema_tab(){
 	
-	$('.tab-nav a').click(function(e){
+	$('.tab-nav > *').click(function(e){
 		
 		var tabgroup   = $(this).data('tab'),
 			tabscript  = $(this).data('script') ? $(this).data('script') : false,
@@ -698,10 +831,10 @@ function _tema_tab(){
 		
 		console.log(tabgroup);
 		
-		$('.tab-nav a').removeClass('on');
+		$('.tab-nav > *').removeClass('on');
 		$(this).addClass('on');
 
-
+		console.log(tabindex);
 		$('.tab-'+tabgroup+' > *').removeClass('on');
 		$('.tab-'+tabgroup+' > *:nth-child('+(tabindex+1)+')').addClass('on');
 
@@ -1730,312 +1863,6 @@ function webView(data){
 
  //  window.webkit.messageHandlers.nativeapp.postMessage(data);
 }
-var form = _fx_set({make:'create'});
-
-function _fx_set(opt){
-	
-	let setForm  ={
-
-		submit		: false,  
-		data 		: false,
-		field		: {},
-		name		: 'main',
-		prefix 		: false,  
-		suffix 		: false,
-		sent 		: false,  
-		err 		: false, 		
-		js			: false, 
-		e           : false,
-		confirm 	: false,
-		feed   		: {
-			api 	: 'Üzgünüz işlem gerçekleştirilemedi, sayfayı bir kez yenileyip tekrar denemenizi öneririz.'
-		}
-	}
-
-	if(opt.make == 'create') return setForm;
-	if(opt.make == 'reset')  form = setForm;
-}
-
-function form_post(){
-	
-	$(document).on('submit','form.fx',function(event){
-	
-		ofPoint();
-
-		event.preventDefault();
-
-		$(this).removeClass('run');
-
-		var e = $(this);
-		var s = $(e).data('set')  ? $(e).data('set')  : false ;
-		
-		// @ Confirm
-
-		if(!form.confirm && s.confirm ){
-			
-			fx_confirm(e,s); 
-			return false;
-		}
-
-		form.confirm = false;
-
-
-		// @ Form Json Data Olustur
-		
-		form.name   	= $(e).attr('name') ? $(e).attr('name') : form.name;
-		form.e  		= '#fx-'+form.name;
-
-		form.prefix		= form.name == 'main' ? '' : '-'+form.name;
-		form.suffix		= form.name == 'main' ? '' : form.name+'-';
-		
-		form.submit  	= '#fx'+form.prefix+' .submit'; 
-
-		form.err		= s.err ? s.err : form.err;
-		form.js 		= s.js  ? s.js  : form.js;
-
-		form.sent 		= false;
-		
-		
-		// @ post set verisi 
-	
-		let type = ( s && s.type ) ? s.type : ( ( $(e).attr('enctype') == 'multipart/form-data' ) ? 'FD' : false );
-		let post = { url :s.url ? s.url : $(e).attr('action'), data:false }
-		
-		// @ post action
-
-		post.url  = post.url ?  post.url : '' ;
-
-		// @ post data icin type formata bul
-		
-	
-		$.each($(e).serializeArray(), function(key, v){
-			form.field[v.name]= v.value;
-		});
-
-
-		post.data = (type=='SA') ? $(e).serializeArray() : post.data;
-		post.data = (type=='FD') ? new FormData(this)	 : post.data;	
-		post.data = post.data 	 ? post.data 			 : $(e).serialize();
-
-
-		
-		// @ post type format formData ise gerekli setleri ekle
-
-		if( type=='FD' ){
-
-			post.enctype 	 = 'multipart/form-data';
-			post.contentType = false;
-			post.processData = false;
-		}
-
-		// @ form data extornal relation add
-
-		if(s.rel){
-			
-			$.each($('.fx-rel-'+form.name), function(key,val){
-				
-				let rt = $(val).attr('type');
-
-				if(rt == 'file') post.data.append($(val).attr('name'),$(val)[0].files[0]); 
-				if(rt != 'file') post.data.append($(val).attr('name'),$(val).val()); 
-			})		
-		}
-		
-		// @ form dataya post.data verisini at
-
-		form.data = post.data;
-
-	
-		// @ In : Post'a girmeden once calisacak olan fonksiyolar
-		
-		_fx_in();
-
-		if(form.js) { 
-			
-			let fxIn = (form.js === true) ? eval('_fx_in_'+form.name+'()') : eval(form.js); 
-			
-			if(s.valid && !fxIn ) {
-				
-				_fx_out(true);
-				
-				onPoint();
-				console.log('valid olmadı');
-				return false;
-			}
-
-			post.data = form.data;
-		}
-
-		console.log('fx in den cikti');
-
-		ofPoint();
-
-		
-		// @ post'a basla
-
-		$.post(post).done(function(json){
-			
-			form.data 	= (typeof json =='object') ? json : $.parseJSON(json);
-			form.sent   = true;
-
-			clearTimeout(say);
-
-			var say = window.setTimeout(function(){
-				
-				_fx_out(); 
-
-				if(form.js){
-
-					var out = ( form.js === true ) ? eval('_fx_out_'+form.name+'()') : eval(form.js);
-				}
-				
-			},600);
-
-		});
-
-	});
-
-
-	$(document).on('click','.fx-submit',function(event){
-		
-		$('form[name="'+$(this).attr('rel')+'"]').submit();
-	})
-
-
-	$('form.fx.run').submit();
-
-}
-
-function _fx_in(){
-	 
-	$(form.e).removeClass('send-on nosent posted');
-	$(form.e).addClass('load');
-
-	$('html').removeClass(form.suffix+'form-nosent');
-	$('html').addClass(form.suffix+'form-load');
-
-
-	// if ( form.resultnote ){ 
-	// 	$(form.resultnote).text('Lütfen Bekleyin') 
-	// }
-	
-	$(form.submit).attr('disabled','disabled');
-	$(form.submit).blur();
-
-	// if($(form.submit).attr('data-load'))
-	// {
-	// 	$(form.submit).attr('value',$(form.submit).attr('data-load'));	
-	// }
-
-	return true;
-}
-
-
-function _fx_out(fxIn) {
-
-	
-	console.log('post cikti');
-
-	$('html').removeClass(form.suffix+'form-load');
-	
-
-	$(form.e).removeClass('load');
-
-	$(form.e+' .hata').removeClass('hata');
-	
-	$(form.submit).removeAttr('disabled');
-	
-	if(fxIn) return false;
-
-
-	var data = form.data;
-
-	if( !data.result ) {
-
-		$('html').addClass(form.suffix+'form-nosent');
-		
-		$(form.e).addClass('send-on nosent');
-
-		if( form.err ){
-
-			$.each(data.errors, function(key, value){
-				
-				$(form.e+' .f-'+key).addClass('hata');
-			})	
-		}
-
-		if(form.feedback) _fx_feedback();
-
-	}
-	else {
-		
-		
-		$('html').addClass(form.suffix+'form-posted');
-		
-		$(form.e).addClass('send-on posted');
-		
-		//$(form.e)[0].reset();
-
-		if($(form.submit).attr('data-load')){
-			
-			$(form.submit).attr('value',$(form.submit).attr('data-value'));
-		}
-	}
-
-	onPoint();
-	
-
-
-	return true;
-}
-
-function fx_confirm(e,s){
-	
-	onPoint();
-
-	Swal.fire({
-  
-		confirmButtonText 	: 'Gönder',
-		cancelButtonText  	: 'Vazgeç',
-		text 				: s.confirm,
-		reverseButtons 		: true,
-		showCancelButton	: true,
-		customClass 		: {
-			popup 	: 'sw-ios sw-note sw-confirm',
-
-		}
-	}).then((result) => {
-		
-		if(!result.value) return false;
-		
-		form.confirm = true;
-		$(e).submit();
-
-	});
-}
-
-function _fx_feedback(){
-}
-
-
-
-
-// if ( form.resultnote ){ 
-
-	// 	var str = form.data.message ?  form.data.message : 'Kırmızı alanları düzeltelim'
-	// 	$(form.resultnote).text(str)
-	// }
-	//_fsa_tema();
-
-// function _fsa_tema(){
-	
-// 	if( form.box ) _tema_form_box();
-	
-// };
-
-
-
-
 function form_type(){
 
 
@@ -3028,6 +2855,312 @@ function _modal_of(get){
 		$(path).removeClass('on on-close on-start');
 	},400)
 }
+var form = _fx_set({make:'create'});
+
+function _fx_set(opt){
+	
+	let setForm  ={
+
+		submit		: false,  
+		data 		: false,
+		field		: {},
+		name		: 'main',
+		prefix 		: false,  
+		suffix 		: false,
+		sent 		: false,  
+		err 		: false, 		
+		js			: false, 
+		e           : false,
+		confirm 	: false,
+		feed   		: {
+			api 	: 'Üzgünüz işlem gerçekleştirilemedi, sayfayı bir kez yenileyip tekrar denemenizi öneririz.'
+		}
+	}
+
+	if(opt.make == 'create') return setForm;
+	if(opt.make == 'reset')  form = setForm;
+}
+
+function form_post(){
+	
+	$(document).on('submit','form.fx',function(event){
+	
+		ofPoint();
+
+		event.preventDefault();
+
+		$(this).removeClass('run');
+
+		var e = $(this);
+		var s = $(e).data('set')  ? $(e).data('set')  : false ;
+		
+		// @ Confirm
+
+		if(!form.confirm && s.confirm ){
+			
+			fx_confirm(e,s); 
+			return false;
+		}
+
+		form.confirm = false;
+
+
+		// @ Form Json Data Olustur
+		
+		form.name   	= $(e).attr('name') ? $(e).attr('name') : form.name;
+		form.e  		= '#fx-'+form.name;
+
+		form.prefix		= form.name == 'main' ? '' : '-'+form.name;
+		form.suffix		= form.name == 'main' ? '' : form.name+'-';
+		
+		form.submit  	= '#fx'+form.prefix+' .submit'; 
+
+		form.err		= s.err ? s.err : form.err;
+		form.js 		= s.js  ? s.js  : form.js;
+
+		form.sent 		= false;
+		
+		
+		// @ post set verisi 
+	
+		let type = ( s && s.type ) ? s.type : ( ( $(e).attr('enctype') == 'multipart/form-data' ) ? 'FD' : false );
+		let post = { url :s.url ? s.url : $(e).attr('action'), data:false }
+		
+		// @ post action
+
+		post.url  = post.url ?  post.url : '' ;
+
+		// @ post data icin type formata bul
+		
+	
+		$.each($(e).serializeArray(), function(key, v){
+			form.field[v.name]= v.value;
+		});
+
+
+		post.data = (type=='SA') ? $(e).serializeArray() : post.data;
+		post.data = (type=='FD') ? new FormData(this)	 : post.data;	
+		post.data = post.data 	 ? post.data 			 : $(e).serialize();
+
+
+		
+		// @ post type format formData ise gerekli setleri ekle
+
+		if( type=='FD' ){
+
+			post.enctype 	 = 'multipart/form-data';
+			post.contentType = false;
+			post.processData = false;
+		}
+
+		// @ form data extornal relation add
+
+		if(s.rel){
+			
+			$.each($('.fx-rel-'+form.name), function(key,val){
+				
+				let rt = $(val).attr('type');
+
+				if(rt == 'file') post.data.append($(val).attr('name'),$(val)[0].files[0]); 
+				if(rt != 'file') post.data.append($(val).attr('name'),$(val).val()); 
+			})		
+		}
+		
+		// @ form dataya post.data verisini at
+
+		form.data = post.data;
+
+	
+		// @ In : Post'a girmeden once calisacak olan fonksiyolar
+		
+		_fx_in();
+
+		if(form.js) { 
+			
+			let fxIn = (form.js === true) ? eval('_fx_in_'+form.name+'()') : eval(form.js); 
+			
+			if(s.valid && !fxIn ) {
+				
+				_fx_out(true);
+				
+				onPoint();
+				console.log('valid olmadı');
+				return false;
+			}
+
+			post.data = form.data;
+		}
+
+		console.log('fx in den cikti');
+
+		ofPoint();
+
+		
+		// @ post'a basla
+
+		$.post(post).done(function(json){
+			
+			form.data 	= (typeof json =='object') ? json : $.parseJSON(json);
+			form.sent   = true;
+
+			clearTimeout(say);
+
+			var say = window.setTimeout(function(){
+				
+				_fx_out(); 
+
+				if(form.js){
+
+					var out = ( form.js === true ) ? eval('_fx_out_'+form.name+'()') : eval(form.js);
+				}
+				
+			},600);
+
+		});
+
+	});
+
+
+	$(document).on('click','.fx-submit',function(event){
+		
+		$('form[name="'+$(this).attr('rel')+'"]').submit();
+	})
+
+
+	$('form.fx.run').submit();
+
+}
+
+function _fx_in(){
+	 
+	$(form.e).removeClass('send-on nosent posted');
+	$(form.e).addClass('load');
+
+	$('html').removeClass(form.suffix+'form-nosent');
+	$('html').addClass(form.suffix+'form-load');
+
+
+	// if ( form.resultnote ){ 
+	// 	$(form.resultnote).text('Lütfen Bekleyin') 
+	// }
+	
+	$(form.submit).attr('disabled','disabled');
+	$(form.submit).blur();
+
+	// if($(form.submit).attr('data-load'))
+	// {
+	// 	$(form.submit).attr('value',$(form.submit).attr('data-load'));	
+	// }
+
+	return true;
+}
+
+
+function _fx_out(fxIn) {
+
+	
+	console.log('post cikti');
+
+	$('html').removeClass(form.suffix+'form-load');
+	
+
+	$(form.e).removeClass('load');
+
+	$(form.e+' .hata').removeClass('hata');
+	
+	$(form.submit).removeAttr('disabled');
+	
+	if(fxIn) return false;
+
+
+	var data = form.data;
+
+	if( !data.result ) {
+
+		$('html').addClass(form.suffix+'form-nosent');
+		
+		$(form.e).addClass('send-on nosent');
+
+		if( form.err ){
+
+			$.each(data.errors, function(key, value){
+				
+				$(form.e+' .f-'+key).addClass('hata');
+			})	
+		}
+
+		if(form.feedback) _fx_feedback();
+
+	}
+	else {
+		
+		
+		$('html').addClass(form.suffix+'form-posted');
+		
+		$(form.e).addClass('send-on posted');
+		
+		//$(form.e)[0].reset();
+
+		if($(form.submit).attr('data-load')){
+			
+			$(form.submit).attr('value',$(form.submit).attr('data-value'));
+		}
+	}
+
+	onPoint();
+	
+
+
+	return true;
+}
+
+function fx_confirm(e,s){
+	
+	onPoint();
+
+	Swal.fire({
+  
+		confirmButtonText 	: 'Gönder',
+		cancelButtonText  	: 'Vazgeç',
+		text 				: s.confirm,
+		reverseButtons 		: true,
+		showCancelButton	: true,
+		customClass 		: {
+			popup 	: 'sw-ios sw-note sw-confirm',
+
+		}
+	}).then((result) => {
+		
+		if(!result.value) return false;
+		
+		form.confirm = true;
+		$(e).submit();
+
+	});
+}
+
+function _fx_feedback(){
+}
+
+
+
+
+// if ( form.resultnote ){ 
+
+	// 	var str = form.data.message ?  form.data.message : 'Kırmızı alanları düzeltelim'
+	// 	$(form.resultnote).text(str)
+	// }
+	//_fsa_tema();
+
+// function _fsa_tema(){
+	
+// 	if( form.box ) _tema_form_box();
+	
+// };
+
+
+
+
 function _tema_form_box(){
 
 	$(form.e).find('.notification button').click(function(){

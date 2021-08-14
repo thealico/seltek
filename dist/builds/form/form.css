@@ -60,6 +60,42 @@
   @  select fi down */
   /*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
   @ line bottom gutter size  */
+  		/*
+  		.ln 							{ border-bottom: 1px solid #e6e6e6; align-items:center; height:54px; display: flex;
+  			> * 						{ height: 100% }
+  			> label 					{ padding-left:3px; @include flex_yc(); color:#777; font:600 14px 'Source Sans Pro'; width:30%; min-width:120px }
+  			.fe 						{ width: 100% }
+  			.fe .fi						{ 
+   				&:not(.left)			{ right: 0 ;background:white  }
+  			}
+  
+  			input.ft,select,textarea 	{ height: 100%; text-indent:1px; font-weight:600; letter-spacing:.3px; font-size:13px;
+  				@include placeholder(#8d8c8c,1,'600 14px Source Sans Pro',1px 0 0 0); 
+  			}
+  
+  			&.no-br 					{ border: 0 }
+  
+  		}
+  
+  		&.ft-2 									{
+  
+  			.ln 								{ height: 54px;   
+  				input.ft,select,textarea 		{  @include placeholder(false,false,false,false,false,400); text-transform:unset }
+  				&.err 							{
+  					input.ft,select,textarea 	{ @include placeholder(#8d8c8c);}
+  				}
+  			}
+  
+  		}
+  
+  
+  		&.ft-3 									{
+  			.ln 								{ 
+  
+  			}
+  		}
+  
+  		*/
   /*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
   @ f4  */
   /*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
@@ -80,12 +116,12 @@
     color: black;
     border: 1px solid #dadada;
     z-index: 1;
-    border: 0;
     width: 100%;
-    letter-spacing: 0; }
+    letter-spacing: 0;
+    border-radius: 6px; }
     .frm input.ft::placeholder, .frm select::placeholder, .frm textarea::placeholder {
       color: black;
-      opacity: 0.8; }
+      opacity: 0.6; }
   .frm input.ft, .frm select {
     padding-top: 1px; }
   .frm .err.ln {
@@ -114,8 +150,7 @@
   .frm[style*='-line'] input.ft, .frm[style*='-line'] select {
     height: var(--punt); }
   .frm textarea {
-    display: block;
-    font-size: 13px; }
+    display: block; }
     .frm textarea.rows {
       margin-left: 0;
       margin-right: 0; }
@@ -369,46 +404,7 @@
       color: #444;
       top: 4px; }
   .frm .ln {
-    border-bottom: 1px solid #e6e6e6;
-    align-items: center;
-    height: 54px;
-    display: flex; }
-    .frm .ln > * {
-      height: 100%; }
-    .frm .ln > label {
-      padding-left: 3px;
-      display: flex;
-      align-items: center;
-      color: #777;
-      font: 600 14px 'Source Sans Pro';
-      width: 30%;
-      min-width: 120px; }
-    .frm .ln .fe {
-      width: 100%; }
-    .frm .ln .fe .fi:not(.left) {
-      right: 0;
-      background: white; }
-    .frm .ln input.ft, .frm .ln select, .frm .ln textarea {
-      height: 100%;
-      text-indent: 1px;
-      font-weight: 600;
-      letter-spacing: .3px;
-      font-size: 13px; }
-      .frm .ln input.ft::placeholder, .frm .ln select::placeholder, .frm .ln textarea::placeholder {
-        color: #8d8c8c;
-        opacity: 1;
-        font: "600 14px Source Sans Pro";
-        padding: 1px 0 0 0; }
-    .frm .ln.no-br {
-      border: 0; }
-  .frm.ft-2 .ln {
-    height: 64px; }
-    .frm.ft-2 .ln input.ft, .frm.ft-2 .ln select, .frm.ft-2 .ln textarea {
-      text-transform: unset; }
-      .frm.ft-2 .ln input.ft::placeholder, .frm.ft-2 .ln select::placeholder, .frm.ft-2 .ln textarea::placeholder {
-        font-weight: 400; }
-    .frm.ft-2 .ln.err input.ft::placeholder, .frm.ft-2 .ln.err select::placeholder, .frm.ft-2 .ln.err textarea::placeholder {
-      color: #8d8c8c; }
+    margin-bottom: 1rem; }
   .frm .fe.h input, .frm .fe.h select {
     height: 100%; }
   .frm .fe.fe-attach {

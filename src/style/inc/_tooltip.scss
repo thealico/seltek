@@ -1,5 +1,5 @@
-[tt]::before,
-[tt]::after {
+[tip]::before,
+[tip]::after {
     text-transform: none;
     font-size: 10px;
     line-height: 1;
@@ -10,19 +10,19 @@
     opacity: 0
 }
 
-[tt]::before {
+[tip]::before {
     content: '';
     border: 5px solid transparent;
     z-index: 1000
 }
 
-[tt]::after:hover{
+[tip]::after:hover{
     
     color: #fff;
 }
 
-[tt]::after {
-    content: attr(tt);
+[tip]::after {
+    content: attr(tip);
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
@@ -45,8 +45,8 @@
     -webkit-font-smoothing: antialiased;
 }
 
-[tt]:hover::before,
-[tt]:hover::after {
+[tip]:hover::before,
+[tip]:hover::after {
     display: block
 }
 
@@ -55,45 +55,45 @@
     display: none!important
 }
 
-[tt]:not([flow])::before,
-[tt][flow^="up"]::before {
+[tip]:not([flow])::before,
+[tip][flow^="up"]::before {
     bottom: 100%;
     border-bottom-width: 0;
     border-top-color: rgba(0, 0, 0, .85);
     margin-bottom: 5px
 }
 
-[tt]:not([flow])::after,
-[tt][flow^="up"]::after {
+[tip]:not([flow])::after,
+[tip][flow^="up"]::after {
     bottom: calc(100% + 10px)
 }
 
-[tt]:not([flow])::before,
-[tt]:not([flow])::after,
-[tt][flow^="up"]::before,
-[tt][flow^="up"]::after {
+[tip]:not([flow])::before,
+[tip]:not([flow])::after,
+[tip][flow^="up"]::before,
+[tip][flow^="up"]::after {
     left: 50%;
     transform: translate(-50%, -.6em)
 }
 
-[tt][flow^="down"]::before {
+[tip][flow^="down"]::before {
     top: 100%;
     border-top-width: 0;
     border-bottom-color: rgba(0, 0, 0, .9);
     margin-top: 5px
 }
 
-[tt][flow^="down"]::after {
+[tip][flow^="down"]::after {
     top: calc(100% + 10px)
 }
 
-[tt][flow^="down"]::before,
-[tt][flow^="down"]::after {
+[tip][flow^="down"]::before,
+[tip][flow^="down"]::after {
     left: 50%;
     transform: translate(-50%, .6em)
 }
 
-[tt][flow^="left"]::before {
+[tip][flow^="left"]::before {
     top: 50%;
     border-right-width: 0;
     border-left-color: rgba(0, 0, 0, .9);
@@ -101,13 +101,13 @@
     transform: translate(-.6em, -50%)
 }
 
-[tt][flow^="left"]::after {
+[tip][flow^="left"]::after {
     top: 50%;
     right: calc(100% + 10px);
     transform: translate(-.6em, -50%)
 }
 
-[tt][flow^="right"]::before {
+[tip][flow^="right"]::before {
     top: 50%;
     border-left-width: 0;
     border-right-color: rgba(0, 0, 0, .9);
@@ -115,7 +115,7 @@
     transform: translate(.6em, -50%)
 }
 
-[tt][flow^="right"]::after {
+[tip][flow^="right"]::after {
     top: 50%;
     left: calc(100% + 10px);
     transform: translate(.6em, -50%)
@@ -135,18 +135,18 @@
     }
 }
 
-[tt]:not([flow]):hover::before,
-[tt]:not([flow]):hover::after,
-[tt][flow^="up"]:hover::before,
-[tt][flow^="up"]:hover::after,
-[tt][flow^="down"]:hover::before,
-[tt][flow^="down"]:hover::after {
+[tip]:not([flow]):hover::before,
+[tip]:not([flow]):hover::after,
+[tip][flow^="up"]:hover::before,
+[tip][flow^="up"]:hover::after,
+[tip][flow^="down"]:hover::before,
+[tip][flow^="down"]:hover::after {
     animation: ntts-vert 400ms ease-out forwards
 }
 
-[tt][flow^="left"]:hover::before,
-[tt][flow^="left"]:hover::after,
-[tt][flow^="right"]:hover::before,
-[tt][flow^="right"]:hover::after {
+[tip][flow^="left"]:hover::before,
+[tip][flow^="left"]:hover::after,
+[tip][flow^="right"]:hover::before,
+[tip][flow^="right"]:hover::after {
     animation: ntts-horz 400ms ease-out forwards
 }

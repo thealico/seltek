@@ -10,7 +10,7 @@ $set 					: (
 	text-top 			: 1px,
 	color 				: black,
 	border-color 		: ( default: #dadada, error:#ffdada ),
-	place 				: ( color : black, opacity :.8,font:false),  // font: 500 14.3px $font-1 
+	place 				: ( color : black, opacity :.6,font:false),  // font: 500 14.3px $font-1 
 	indent				: 8,
 	textbox 			: (
 		padding 		: 6px,
@@ -46,9 +46,10 @@ $set 					: (
 		color 				: map-get($set,color); 
 		border 				: 1px solid map-deep-get($set,border-color,default); 
 		z-index 			: 1; 
-		border 				: 0;
+		//border 				: 1;
 		width 				: 100%;
 		letter-spacing 		: map-get($set,letter);
+		border-radius 		: 6px
 	}
 	
 
@@ -84,16 +85,16 @@ $set 					: (
 	/*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
 	@ boylar */
 
-		input.ft,select				{ height: 44px  }
+		input.ft,select					{ height: 44px  }
 
-		&[style*='-punt'] 				{ input.ft,select,textarea { font-size: var(--punt) } } 
-		&[style*='-line'] 				{ input.ft,select  		  { height: var(--punt) } } 
+		&[style*='-punt'] 				{ input.ft,select,textarea 	{ font-size: var(--punt) } } 
+		&[style*='-line'] 				{ input.ft,select  		  	{ height: var(--punt) } } 
 
 	
 	/*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
 	@ textarea  */
 
-		textarea 						{ display: block; font-size: 13px;
+		textarea 						{ display: block; 
 			&.rows 						{ margin-left:0; margin-right:0 }
 			&:not(.rows) 				{ height:map-deep-get($set,textbox,height) }
 			&.percent-height			{ min-height:100% }
@@ -271,6 +272,12 @@ $set 					: (
 	/*  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   - 
 	@ line bottom gutter size  */
 
+		
+		.ln 							{ margin-bottom:1rem;
+
+		}
+
+		/*
 		.ln 							{ border-bottom: 1px solid #e6e6e6; align-items:center; height:54px; display: flex;
 			> * 						{ height: 100% }
 			> label 					{ padding-left:3px; @include flex_yc(); color:#777; font:600 14px 'Source Sans Pro'; width:30%; min-width:120px }
@@ -289,7 +296,7 @@ $set 					: (
 
 		&.ft-2 									{
 
-			.ln 								{ height: 64px;   
+			.ln 								{ height: 54px;   
 				input.ft,select,textarea 		{  @include placeholder(false,false,false,false,false,400); text-transform:unset }
 				&.err 							{
 					input.ft,select,textarea 	{ @include placeholder(#8d8c8c);}
@@ -297,6 +304,15 @@ $set 					: (
 			}
 
 		}
+
+
+		&.ft-3 									{
+			.ln 								{ 
+
+			}
+		}
+
+		*/
 
 
 

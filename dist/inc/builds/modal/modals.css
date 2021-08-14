@@ -9,12 +9,6 @@
   position: relative;
   box-sizing: border-box; }
 
-* {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
 i, em {
   font-style: normal; }
 
@@ -166,8 +160,9 @@ input, button, select, textarea {
   z-index: 7; }
 
 .ovrly.two {
-  background: rgba(0, 0, 0, 0.09);
-  transition: opacity .2s; }
+  background: rgba(0, 0, 0, 0.15);
+  transition: opacity .2s;
+  z-index: 3; }
 
 .f-bulur {
   filter: blur(2px); }

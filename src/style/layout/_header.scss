@@ -1,5 +1,5 @@
  
-header 						{ background:white; display:flex; flex-direction:column; position:sticky; top:0; z-index:3;
+header 						{ background:white; display:flex; flex-direction:column; position:sticky; top:0; z-index:4;
 
 	hr  					{ background:$line-1; border:0; height:2px; width:100%; position:absolute; left:0; width:100%; bottom:0}
 
@@ -18,17 +18,64 @@ header 						{ background:white; display:flex; flex-direction:column; position:s
 	}
 
 
-	.as 					{ flex:1; padding-top:20px; padding-bottom:18px; }
+	.as 					{ flex:1; padding-top:20px; /*padding-bottom:18px; */}
 
 	.logo 					{ 
 
 		img 				{ max-width: 224px }
 	}
 
+	.case 					{ visibility:hidden; position: absolute; width: 920px; z-index:1;  right: -20px ; top: 36px; padding-top:4px;  
+		.in 				{ height: 370px;  background: white;border-radius:0 0 8px 8px;}
+
+		//&::before			{ background:rgba(0,0,0,.2);   position: fixed; width: 100%; height: calc( 100% - var(--app-head) ); top: var(--app-head); left: 0; z-index: -1; content: " " }
+
+		.sub-us 			{ border-bottom:1px solid #ddd; height:58px;
+			ol 				{ height:100% }
+			a 				{ height:100%; display:flex; align-items:center; font-weight:700;
+				i 			{ position:absolute; left:50%; font-size:13px; transform:translate(-50%, 0); bottom:1px; visibility:hidden }
+			}
+			li.on 			{
+				a 			{  color:$color-b; i {visibility:visible } }
+			}
+		}
+
+		.sub-as 			{ height: calc( 100% - 58px );
+			
+			.tab-con > .row { height:100% ;
+				> div 		{ height:100% ; border-left:1px solid #ddd; &:first-child { border-left:0 } }
+			}
+			.nav ol 		{ padding:8px }
+		}
+
+		.nav-as 			{
+			ol:not(.on) 	{ display:none}
+		}
+
+		.nav  				{ 
+			a 				{ display:block; padding:8px 8px; border-radius:6px; color:$color-a; font-weight:700;
+				&:hover 	{ background:#eee; }
+			}
+			li.on a 		{ background:#eee; }
+		}
+
+		.new 				{ padding:16px; 
+			h4 				{ font-size:21px; font-weight:400 }
+			figure 			{ background:#eee; border-radius:6px }
+			summary 		{ font-size:13px; text-align:justify; padding:0}
+		}
+	}
 
 	menu 					{ 
+		
+		> li 				{ position: static;
+			&:hover 		{
+				.case 		{ visibility: visible }
+			}
+		}
+
 		> li > span  		{ 
-			a 				{ font-size:16px; font-weight:400;
+			a 				{ font-size:16px; font-weight:400; padding-bottom:18px; display:block;
 				&:hover 	{ color:#FF8040; }
 			}
 			i 				{ font-size:12px; margin-left:5px; top:0px }
@@ -40,8 +87,15 @@ header 						{ background:white; display:flex; flex-direction:column; position:s
 		.ft 				{ border: 1px solid #ddd; font:300 13px Ubuntu; padding-bottom:1px; color:#666;  border-radius: 6px; height: 38px }
 		.fe .fi  i.ss-gizmo { font-size:17px; top:0 }
 	}
+
+
+	
+
+	
 	
 }
+
+html.on-menu.ovrly-two main { filter:blur(2px) }
 
 
 @media #{$gl-md-min}  		{

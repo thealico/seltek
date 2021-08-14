@@ -92,7 +92,7 @@
 ///@import "inc/hr_space"; 
 // @import "inc/embed_case"; 
 // @import "inc/dot_post"; 
-// @import "inc/tab"; 
+@import "inc/tab"; 
 // @import "inc/pager"; 
 // @import "inc/ayrac"; 
 
@@ -114,7 +114,7 @@
 
 @import "inc/builds/modal/modal";
 
-// @import "inc/builds/slimscroll";
+@import "inc/builds/slimscroll";
 // @import "inc/builds/icon";
 //@import "inc/builds/mask";
 @import "inc/builds/buton";
@@ -264,6 +264,8 @@ blockquote.record 				{ display: flex;align-items: center;padding:20px 10px 20px
  @import "pages/about";
  @import "pages/product";
  @import "pages/sektor";
+ @import "pages/partner";
+ @import "pages/adres";
 
 // @import "pages/dashboard";
 // @import "pages/oturum";

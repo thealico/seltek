@@ -43,13 +43,13 @@
 					</form>
 				</div>
 
-				<menu class="row gut-2 end">
-					<li><span><a href="#">About</a></span></li>
-					<li><span><a href="#">Products</a></span></li>	
-					<li><span><a href="#">Industries</a></span></li>
-					<li><span><a href="#">Partners</a></span></li>
-					<li><span><a href="#">News</a></span></li>
-					<li><span><a href="#">Contact</a></span></li>
+				<menu class="row gut-2 end" id="menu">
+					<li><span><a href="#">About</a></span><?php include '_sub.php'  ?></li>
+					<li><span><a href="#">Products</a></span><?php include '_sub.php'  ?></li>	
+					<li><span><a href="#">Industries</a></span><?php include '_sub.php'  ?></li>
+					<li><span><a href="#">Partners</a></span><?php include '_sub.php'  ?></li>
+					<li><span><a href="#">News</a></span><?php include '_sub.php'  ?></li>
+					<li><span><a href="#">Contact</a></span><?php include '_sub.php'  ?></li>
 				</menu>
 
 			</div>

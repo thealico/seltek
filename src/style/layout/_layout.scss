@@ -1,13 +1,7 @@
 :root 								{
-	--app-side 		: 320px;
-	--app-head 		: 50px ;
-	--app-menu 		: 62px ;
-	--app-body 		: 656px;
+	--app-head 		: 166px ;
 }
 
-
-$app-head : 50px;
-$app-menu : 62px;
 
 
 @import "screen";
@@ -24,7 +18,7 @@ body::-webkit-scrollbar 			{ display: none}
 //body 								{ overflow-x: hidden ; transition: opacity .3s; opacity: 1 ; /*min-width:1024px; min-height:768px*/ }
 
 body 								{ overflow-x: hidden ; display:flex; flex-direction:column;min-height:100vh;  }
-body > main 						{ flex:1 }
+body > main 						{ flex:1; z-index:2 }
 
 html.query 							{ pointer-events: none; background:url('img/load/spin.gif') no-repeat center center;
 	body							{ opacity: 0 }
