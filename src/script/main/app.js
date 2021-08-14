@@ -99,9 +99,10 @@ $(document).ready(function(){
 	);
 
 
-	$('#menu .tab-con .on .nav-us li').hover(
+	$('#menu .tab-con .nav-us li').hover(
 		function(){
 	  		
+	  		console.log('xx');
 	  		let i = $(this).index()+1;
 
 	  		$('#menu .tab-con .on .nav-us ol li').removeClass('on');
